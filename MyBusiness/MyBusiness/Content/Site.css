@@ -1,0 +1,488 @@
+html {
+    /*background:url("/Images/turquoise-pattern.gif") no-repeat;
+    background-repeat:repeat;*/
+    /*background-color : black;*/
+        /*background-color: #3EA99F;*/
+        /* IE10 Consumer Preview */ 
+      /*  background-image:-moz-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-webkit-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-o-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-ms-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:linear-gradient(top,#3EA99F,#FFFFFF);
+        background-repeat: no-repeat; */
+        margin: 0;
+        padding: 0;
+}
+
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #000000;
+}
+
+#container {
+    max-width: 1000px;
+    height: 100%;
+    overflow: hidden;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 30px 30px 0px 0px;
+}
+
+
+#bodyInner
+{
+    font-size:large;
+    padding-left:3px;
+    padding-right:3px;
+    max-width: 1360px;
+    /*background-color: #efeeef;*/
+    background-color: #fff;
+    clear: both;
+    padding-bottom: 35px;
+    margin-left:auto;
+    margin-right:auto;
+    height:760px;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #FFF;
+    border-top: 2px solid #FFF;
+    /*border-top-left-radius:15px;
+    border-top-right-radius:15px;*/
+}
+
+/*image sizes*/
+.description
+{
+  font-size:x-small;   
+}
+
+.imageItem
+{
+    text-align:center;
+    padding:7px;
+}
+
+
+
+h2
+{
+    margin-left:50px;
+    font-family: Arial;
+}
+
+.bar
+{
+    margin-top: -15px;
+    /*margin-left: -8px;*/
+    height: 50px;
+    width: 100%;
+    margin-bottom: 2px;
+    background-color: #0047A3;
+    text-align:center;
+}
+
+.barText
+{
+    float: left;
+    color: #FFF;
+    font-size: 1.0em;
+    line-height: 0px;
+    padding-left: 3px;
+}
+
+.CompanyName
+{
+  float:left;
+  color:#FF3CB1;
+  font-size:18px;
+}
+
+header,
+footer,
+nav,
+section 
+{
+    margin-top:-10px;
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {padding:0;position:relative;margin:0 0 0 15px;text-align:right;}
+/* tab background color */
+ul#menu li {display:block;list-style:none;background:#FFFF44 no-repeat 0 -150px;float:right;margin:0 2px 0 0;font-size:.8em;}
+/* tab font color */
+ul#menu li a {padding:10px 18px;font-weight:bold;text-decoration:none;color:#000;background: transparent no-repeat right -150px;display:block;}
+ul#menu li a:hover {text-decoration:none;color:#FF3CB1;}
+ul#menu li a:active {text-decoration:none;color:#009933;}
+ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
+ul#menu li.selected a {color:#000;}
+
+#FbImg
+{
+    width:50px;
+}
+
+#GitHubImg
+{
+    width:25px;
+}
+
+#LinkedInImg
+{
+    width:25px;
+}
+
+#FooterImg
+{
+    float:right;
+    margin-right:5px;
+}
+
+footer 
+{
+    clear: both;
+    /*background-color: #e2e2e2;*/
+    background-color: #000000;
+    font-size: .8em;
+    height: 100px;
+    color:#ffffff;
+    /*border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;*/
+}
+
+.footer-text
+{
+    position:absolute;
+    margin-top: -23px;
+    margin-left: -80px;
+    float:right;
+}
+
+/* Home */
+
+/* About Me */
+.StoreHours
+{
+    color:#605F5F;
+    position:absolute;
+    margin-left: 45px;
+    margin-top: 100px;
+    font-size:medium;
+}
+
+.StoreHoursU
+{
+    color:#605F5F;
+    font-weight:bold;
+    font-size:x-large;
+    text-decoration:underline;
+}
+
+#map-large
+{
+    position: absolute;
+    margin-left:660px;
+    margin-top: 500px;
+}
+
+
+#map-canvas
+{
+    width:500px;
+    height:500px;
+    margin-top:20px;
+    margin-right:30px;
+    float:right;
+}
+
+
+/********************
+*   Mobile Styles   *
+********************/
+@media only screen and (max-width: 850px) {
+
+html {
+    /*background:url("/Images/turquoise-pattern.gif") no-repeat;
+    background-repeat:repeat;*/
+    background-color : black;
+        /*background-color: #3EA99F;*/
+        /* IE10 Consumer Preview */ 
+      /*  background-image:-moz-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-webkit-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-o-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:-ms-linear-gradient(top,#3EA99F,#FFFFFF);
+        background-image:linear-gradient(top,#3EA99F,#FFFFFF);
+        background-repeat: no-repeat; */
+        margin: 0;
+        padding: 0;
+}
+
+body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #000000;
+}
+
+  /* header
+    ----------------------------------------------------------*/
+    /*top tab*/
+    header .float-left,
+    header .float-right {
+        float: right;
+        font-size:x-small;
+    }
+
+    /* logo */
+    header .site-title {
+        margin: 10px;
+        text-align: center;
+    }
+
+    /* login */
+    #login {
+    display: block;
+    font-size: .85em;
+    margin: 0 0 10px;
+    text-align: right;
+    color:#000;
+    }
+
+        #login ul {
+            margin: 5px 0;
+            padding: 0;
+        }
+
+        #login li {
+        display: inline;
+        list-style: none;
+        }
+
+        #login a {
+        background-color: #d3dce0;
+        margin-left: 10px;
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+        }
+
+        #login a:hover {
+            color: #333;
+        }
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {padding:0;position:relative;margin:0 0 0 15px;text-align:right;}
+/* tab background color */
+ul#menu li {display:block;list-style:none;background:#FFFF44 no-repeat 0 -150px;float:right;margin:0 2px 0 0;font-size:8px;}
+/* tab font color */
+ul#menu li a {padding:6px 13px;font-weight:bold;text-decoration:none;color:#000;background: transparent no-repeat right -150px;display:block;}
+ul#menu li a:hover {text-decoration:none;color:#FF3CB1;}
+ul#menu li a:active {text-decoration:none;color:#009933;}
+ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
+ul#menu li.selected a {color:#000;}
+
+/*image sizes*/
+.imgSingle
+{
+  width:50px;
+  height:50px;
+}
+.description
+{
+  font-size:x-small;  
+}
+
+.imageItem
+{
+    text-align:center;
+    padding:8px;
+}
+
+.CompanyName
+{
+  float:left;
+  color:#FF3CB1;
+  font-size:11px;
+  padding-right:10px;
+}
+
+.bar
+{
+    margin-top: -15px;
+    /*margin-left: -8px;*/
+    height: 30px;
+    width: 100%;
+    margin-bottom: 2px;
+    background-color: #0047A3;
+    text-align:center;
+}
+
+.barText
+{
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    line-height: 0px;
+    padding-left: 0px;
+}
+
+#FbImg
+{
+    margin-top:1px;
+    width:40px;
+    margin-right:-20px;
+}
+
+#GitHubImg
+{
+    width:40px;
+}
+
+#LinkedInImg
+{
+    width:40px;
+}
+
+#FooterImg
+{
+    float:right;
+}
+
+.footer-text
+{
+    position:absolute;
+    margin-top: -15px;
+    margin-left: -43px;
+    float:right;
+    width:100px;
+}
+
+    #bodyInner
+  {
+    font-size:small;
+    padding-left:8px;
+    padding-right:8px;
+    width: 650px;
+    background-color: #fff;
+    padding-bottom: 0px;
+    /*border-left: 2px solid #FFF;
+    border-right: 2px solid #FFF;
+    border-top: 2px solid #FFF;*/
+    /*border-top-left-radius:15px;
+    border-top-right-radius:5px;*/
+  }
+  
+  #container {
+    /*width: 1060px;*/
+    position: relative;
+    width: 650px;
+    height: 100%;
+    overflow: hidden;
+    /*background-color : green;*/
+    margin-left:auto;
+    margin-right:auto;
+    font-size: .7em;
+    padding: 30px 30px 0px 0px;
+}
+
+/* Home */
+
+/* About Me */
+
+.StoreHours
+{
+    position:absolute;
+    margin-left: 20px;
+    margin-top: 180px;
+}
+
+.StoreHoursU
+{
+    font-weight:bold;
+    font-size:20px;
+    text-decoration:underline;
+}
+
+#map-large
+{
+    position: absolute;
+    margin-left:410px;
+    margin-top: 450px;
+}
+
+
+#map-canvas
+{
+    width:350px;
+    height:350px;
+    margin-top:100px;
+    margin-right:30px;
+    float:right;
+}
+}

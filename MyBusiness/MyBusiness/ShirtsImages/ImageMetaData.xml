@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<images>
+  <!--Men-->-->
+  <image>
+    <filename>1.jpg</filename>
+    <description>Cat shirt</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>2.png</filename>
+    <description>Cliff hanger</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>3.jpeg</filename>
+    <description>Plain Grey</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>4.jpg</filename>
+    <description>Grey V-neck</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>5.jpg</filename>
+    <description>Plain White</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>6.jpg</filename>
+    <description>Blue Surfer</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>7.jpg</filename>
+    <description>Errea</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>8.jpg</filename>
+    <description>Normal Blue</description>
+    <gender>Men</gender>
+  </image>
+  <!--Women-->-->
+  
+  
+</images>
+
+

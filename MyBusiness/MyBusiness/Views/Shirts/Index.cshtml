@@ -1,0 +1,155 @@
+﻿@using MyBusiness.Models
+
+@{
+    ViewBag.Title = "Shirts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<br />
+<div class ="bar"><span class="barText"><h2>Shirts</h2></span></div>
+ 
+
+ <script type="text/javascript">
+     $(function () {
+         /*  Define friendly index name
+         var index = 'key';
+         //  Define friendly data store name
+         var dataStore = window.sessionStorage;
+
+         //  Start magic!
+         try {
+             // getter: Fetch previous value
+             var oldIndex = dataStore.getItem(index);
+         } catch (e) {
+             // getter: Always default to first tab in error state
+             var oldIndex = 0;
+         }
+
+         $("#tabs").tabs({
+             // The zero-based index of the panel that is active (open)
+             active: oldIndex,
+             // Triggered after a tab has been activated
+             activate: function (event, ui) {
+                 //  Get future value
+                 var newIndex = ui.newTab.parent().children().index(ui.newTab);
+                 //  Set future value
+                 dataStore.setItem(index, newIndex)
+             }
+         });*/
+         $("#tabs").tabs().css({
+             'height': '660px',
+             'overflow': 'auto',
+             'font-size': '10pt'
+         });
+
+         /* $("#tab1").on("click", function () {
+         location.reload();
+         $.ajax({
+         type: "POST",
+         cache: false,
+         url: "@Url.Action("GetFolder", "Mens Apparels")",
+         contentType: "application/json; charset=utf-8",
+         data: "{'Folder': 'Mens Apparels'}",
+         dataType: "json",
+         success: function (result) {
+         alert("ok: " + result.d);
+         },
+         error: function (result) {
+         alert('Oh no: ' + result.responseText);
+         }
+         });
+
+         });
+
+
+         $("#tab2").on("click", function () {
+         location.reload();
+         $.ajax({
+         type: "POST",
+         cache: false,
+         url: "@Url.Action("GetFolder", "Womens Apparels")",
+         contentType: "application/json; charset=utf-8",
+         data: "{'folder': 'Womens Apparels'}",
+         dataType: "json",
+         success: function (result) {
+         alert("ok: " + result.d);
+         },
+         error: function (result) {
+         alert('Oh no: ' + result.responseText);
+         }
+         });
+
+         });*/
+
+     });
+
+
+    </script>
+</head>
+<body>
+<br />
+   <div id="tabs">
+<ul>
+<li id="tab1"><a href="#tabs-1">Women's</a></li>
+<li id="tab2"><a href="#tabs-2">Men's</a></li>
+</ul>
+<div id="tabs-1">
+<table>
+ @{int count = 0;}
+   @foreach (var image in ViewData.Model)
+   {
+       if (image.Folder == "Women")
+       {
+            if (count % 8 == 0)
+           {
+             <tr></tr>    
+           }
+           <td>
+              <div class="imageItem">
+   <span class="image">
+        <a href="ShirtsImages/@image.Path" target="_blank">
+        <img class="imgSingle" src="ShirtsImages/@image.Path" height="100" width="100" /></a>
+        <br />
+        <span class="description">@image.Description</span>
+   </span>
+   </div>
+   </td>
+           count++;
+       }
+   }
+   </table>
+</div>
+<div id="tabs-2">
+<table>
+ @{int count2 = 0;}
+   @foreach (var image in ViewData.Model)
+   {
+       if (image.Folder == "Men")
+       {
+           if (count2 % 8 == 0)
+           {
+             <tr></tr>    
+           }
+           <td>
+              <div class="imageItem">
+   <span class="image">
+        <a href="ShirtsImages/@image.Path" target="_blank">
+        <img class="imgSingle" src="ShirtsImages/@image.Path" height="100" width="100" /></a>
+        <br />
+        <span class="description">@image.Description</span>
+   </span>
+   </div>
+   </td>
+           count2++;
+       }
+   }
+      </table>
+</div>
+</div>
+
+</body>
+</html>
