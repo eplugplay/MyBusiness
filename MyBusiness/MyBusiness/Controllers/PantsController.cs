@@ -14,7 +14,7 @@ namespace MyBusiness.Controllers
 
         public ActionResult Index()
         {
-            return View(new ImageModel("PantImages"));
+            return View(new ImageModel("PantsImages"));
         }
 
     }

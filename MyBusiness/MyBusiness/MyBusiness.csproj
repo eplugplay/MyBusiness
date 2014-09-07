@@ -133,23 +133,23 @@
     <Content Include="NewArrivalsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="PantImages\1-wo.jpg" />
-    <Content Include="PantImages\1.jpg" />
-    <Content Include="PantImages\2-wo.jpg" />
-    <Content Include="PantImages\2.jpg" />
-    <Content Include="PantImages\3-wo.jpg" />
-    <Content Include="PantImages\3.jpg" />
-    <Content Include="PantImages\4-wo.jpg" />
-    <Content Include="PantImages\4.jpg" />
-    <Content Include="PantImages\5-wo.jpg" />
-    <Content Include="PantImages\5.jpg" />
-    <Content Include="PantImages\6-wo.jpg" />
-    <Content Include="PantImages\6.jpg" />
-    <Content Include="PantImages\7-wo.jpg" />
-    <Content Include="PantImages\7.jpg" />
-    <Content Include="PantImages\8-wo.jpg" />
-    <Content Include="PantImages\8.jpg" />
-    <Content Include="PantImages\ImageMetaData.xml">
+    <Content Include="PantsImages\1-wo.jpg" />
+    <Content Include="PantsImages\1.jpg" />
+    <Content Include="PantsImages\2-wo.jpg" />
+    <Content Include="PantsImages\2.jpg" />
+    <Content Include="PantsImages\3-wo.jpg" />
+    <Content Include="PantsImages\3.jpg" />
+    <Content Include="PantsImages\4-wo.jpg" />
+    <Content Include="PantsImages\4.jpg" />
+    <Content Include="PantsImages\5-wo.jpg" />
+    <Content Include="PantsImages\5.jpg" />
+    <Content Include="PantsImages\6-wo.jpg" />
+    <Content Include="PantsImages\6.jpg" />
+    <Content Include="PantsImages\7-wo.jpg" />
+    <Content Include="PantsImages\7.jpg" />
+    <Content Include="PantsImages\8-wo.jpg" />
+    <Content Include="PantsImages\8.jpg" />
+    <Content Include="PantsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="RhinestoneImages\1-wo.jpg" />
