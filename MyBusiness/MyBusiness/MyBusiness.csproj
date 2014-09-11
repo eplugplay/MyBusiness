@@ -104,70 +104,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApparelsImages\1.jpg" />
-    <Content Include="ApparelsImages\2.jpg" />
-    <Content Include="ApparelsImages\3.jpg" />
-    <Content Include="ApparelsImages\4.jpg" />
-    <Content Include="ApparelsImages\5.jpg" />
-    <Content Include="ApparelsImages\6.jpg" />
-    <Content Include="ApparelsImages\7.jpg" />
-    <Content Include="ApparelsImages\8.jpg" />
     <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="NewArrivalsImages\1-wo.jpg" />
-    <Content Include="NewArrivalsImages\1.jpg" />
-    <Content Include="NewArrivalsImages\2-wo.jpg" />
-    <Content Include="NewArrivalsImages\2.jpg" />
-    <Content Include="NewArrivalsImages\3-wo.jpg" />
-    <Content Include="NewArrivalsImages\3.jpg" />
-    <Content Include="NewArrivalsImages\4-wo.jpg" />
-    <Content Include="NewArrivalsImages\4.jpg" />
-    <Content Include="NewArrivalsImages\5-wo.jpeg" />
-    <Content Include="NewArrivalsImages\5-wo.jpg" />
-    <Content Include="NewArrivalsImages\5.jpg" />
-    <Content Include="NewArrivalsImages\6-wo.jpg" />
-    <Content Include="NewArrivalsImages\6.jpg" />
-    <Content Include="NewArrivalsImages\7-wo.jpg" />
-    <Content Include="NewArrivalsImages\7.jpg" />
-    <Content Include="NewArrivalsImages\8-wo.jpg" />
-    <Content Include="NewArrivalsImages\8.jpg" />
     <Content Include="NewArrivalsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="PantsImages\1-wo.jpg" />
-    <Content Include="PantsImages\1.jpg" />
-    <Content Include="PantsImages\2-wo.jpg" />
-    <Content Include="PantsImages\2.jpg" />
-    <Content Include="PantsImages\3-wo.jpg" />
-    <Content Include="PantsImages\3.jpg" />
-    <Content Include="PantsImages\4-wo.jpg" />
-    <Content Include="PantsImages\4.jpg" />
-    <Content Include="PantsImages\5-wo.jpg" />
-    <Content Include="PantsImages\5.jpg" />
-    <Content Include="PantsImages\6-wo.jpg" />
-    <Content Include="PantsImages\6.jpg" />
-    <Content Include="PantsImages\7-wo.jpg" />
-    <Content Include="PantsImages\7.jpg" />
-    <Content Include="PantsImages\8-wo.jpg" />
-    <Content Include="PantsImages\8.jpg" />
     <Content Include="PantsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="RhinestoneImages\1-wo.jpg" />
-    <Content Include="RhinestoneImages\1.jpg" />
-    <Content Include="RhinestoneImages\2-wo.jpg" />
-    <Content Include="RhinestoneImages\2.jpg" />
-    <Content Include="RhinestoneImages\3-wo.jpg" />
-    <Content Include="RhinestoneImages\3.jpg" />
-    <Content Include="RhinestoneImages\4-wo.jpg" />
-    <Content Include="RhinestoneImages\4.jpg" />
-    <Content Include="RhinestoneImages\5-wo.jpg" />
-    <Content Include="RhinestoneImages\5.jpg" />
-    <Content Include="RhinestoneImages\6-wo.jpg" />
-    <Content Include="RhinestoneImages\6.jpg" />
-    <Content Include="RhinestoneImages\7-wo.jpg" />
-    <Content Include="RhinestoneImages\7.jpg" />
-    <Content Include="RhinestoneImages\8-wo.jpg" />
-    <Content Include="RhinestoneImages\8.jpg" />
     <Content Include="RhinestoneImages\ImageMetaData.xml" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -207,15 +150,6 @@
     <Content Include="ApparelsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ApparelsImages\sample 1.jpg" />
-    <Content Include="ApparelsImages\sample 2.jpg" />
-    <Content Include="ApparelsImages\sample 3.jpg" />
-    <Content Include="ApparelsImages\sample 4.jpg" />
-    <Content Include="ApparelsImages\sample 5.jpg" />
-    <Content Include="ApparelsImages\sample 6.jpg" />
-    <Content Include="ApparelsImages\sample 7.jpg" />
-    <Content Include="ApparelsImages\sample 8.jpg" />
-    <Content Include="ApparelsImages\sample.jpg" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -226,25 +160,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="ShirtsImages\1.jpg" />
-    <Content Include="ShirtsImages\2.png" />
-    <Content Include="ShirtsImages\3.jpeg" />
-    <Content Include="ShirtsImages\4.jpg" />
-    <Content Include="ShirtsImages\5.jpg" />
-    <Content Include="ShirtsImages\6.jpg" />
-    <Content Include="ShirtsImages\7.jpg" />
-    <Content Include="ShirtsImages\8.jpg" />
     <Content Include="ShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ShoesImages\1-wo.jpg" />
-    <Content Include="ShoesImages\2-wo.jpg" />
-    <Content Include="ShoesImages\3-wo.jpg" />
-    <Content Include="ShoesImages\4-wo.jpg" />
-    <Content Include="ShoesImages\5-wo.jpg" />
-    <Content Include="ShoesImages\6-wo.jpg" />
-    <Content Include="ShoesImages\7-wo.jpg" />
-    <Content Include="ShoesImages\8-wo.jpg" />
     <Content Include="ShoesImages\ImageMetaData.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
