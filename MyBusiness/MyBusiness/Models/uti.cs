@@ -19,7 +19,7 @@ namespace MyBusiness.Models
                 cnn.Open();
                 using (var cmd = cnn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder";
+                    cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0";
                     cmd.Parameters.AddWithValue("folder", folder);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.Fill(dt);
