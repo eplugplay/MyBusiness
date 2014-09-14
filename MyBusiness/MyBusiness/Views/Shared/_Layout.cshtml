@@ -85,19 +85,10 @@
 
     <header>
             <div class="content-wrapper">
-            <div class="float-left">
-
-            </div>
-                <!--<div class="float-left">
-                  <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>-->
-                <div class="float-right">
-                    <section id="login">
-
-                    </section>
+                  @*<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>*@
+                    <div class="CompanyName">Donna's Fashion</div>
                     <nav>
                         <ul id="menu">
-                        <span class="CompanyName">Donna's Fashion</span>
                             <li class="@Html.ActivePage("About", "Index")">@Html.ActionLink("About Us", "Index", "About")</li>
                             <li class="@Html.ActivePage("Map", "Index")">@Html.ActionLink("Map", "Index", "Map")</li>
                             <li class="@Html.ActivePage("RhineStones", "Index")">@Html.ActionLink("Rhinestones", "Index", "RhineStones")</li>
@@ -110,7 +101,6 @@
                             <li class="@Html.ActivePage("Home", "Index")">@Html.ActionLink("Home", "Index", "Home")</li>
                         </ul>
                     </nav>
-                </div>
             </div>
         </header>
     <div id="bodyInner">
