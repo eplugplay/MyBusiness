@@ -97,6 +97,7 @@ h2
   color:#FF3CB1;
   font-size:18px;
   width:160px;
+  margin-left: 15px;
 }
 
 header,
@@ -370,7 +371,7 @@ ul#menu li.selected a {color:#000;}
   float:left;
   color:#FF3CB1;
   font-size:11px;
-  padding-right:30px;
+  margin-left: 15px;
 }
 
 .bar
