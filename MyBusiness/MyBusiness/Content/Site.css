@@ -184,6 +184,22 @@ ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
 ul#menu li.selected a {color:#000;}
 
+/*
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #0000ff;
+}
+
+.ui-tabs .ui-tabs-nav {
+    color: #0000ff;
+}
+
+.ui-tabs .ui-tabs-nav a
+{
+   background-color: #231f20;
+}
+*/
+
+
 #FbImg
 {
     width:50px;
@@ -211,7 +227,7 @@ footer
     border-bottom-right-radius:15px;*/
 }
 
-#copyright
+.copyright
 {
     float:left;
     width:150px;
@@ -410,7 +426,7 @@ ul#menu li.selected a {color:#000;}
     width:40px;
 }
 
-#copyright
+.copyright
 {
     float:left;
     width:150px;
