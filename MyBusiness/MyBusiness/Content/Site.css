@@ -38,8 +38,8 @@ body
 #bodyInner
 {
     font-size:large;
-    padding-left:3px;
-    padding-right:3px;
+    padding-left:4px;
+    padding-right:4px;
     width: 970px;
     /*background-color: #efeeef;*/
     background-color: #fff;
@@ -75,7 +75,6 @@ h2
 .bar
 {
     margin-top: -15px;
-    /*margin-left: -8px;*/
     height: 50px;
     width: 100%;
     margin-bottom: 2px;
@@ -379,7 +378,6 @@ ul#menu li.selected a {color:#000;}
 .bar
 {
     margin-top: -15px;
-    /*margin-left: -8px;*/
     height: 30px;
     width: 100%;
     margin-bottom: 2px;
@@ -428,9 +426,9 @@ ul#menu li.selected a {color:#000;}
     #bodyInner
   {
     font-size:small;
-    padding-left:8px;
-    padding-right:8px;
-    width: 650px;
+    padding-left:4px;
+    padding-right:4px;
+    width: 660px;
     background-color: #fff;
     padding-bottom: 0px;
     /*border-left: 2px solid #FFF;
