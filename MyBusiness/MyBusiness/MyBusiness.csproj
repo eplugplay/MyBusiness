@@ -104,6 +104,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApparelsImages\4.jpg" />
+    <Content Include="ApparelsImages\5.jpg" />
     <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="NewArrivalsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
