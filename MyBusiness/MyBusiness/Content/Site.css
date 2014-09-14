@@ -22,7 +22,9 @@ body
     background-color: #000000;
 }
 
-#container {
+#container 
+{
+    margin-top:2%;
     width: 980px;
     height: 100%;
     overflow: hidden;
@@ -438,7 +440,9 @@ ul#menu li.selected a {color:#000;}
     border-top-right-radius:5px;*/
   }
   
-  #container {
+  #container 
+  {
+    margin-top:2%;
     position: relative;
     width: 670px;
     height: 100%;
