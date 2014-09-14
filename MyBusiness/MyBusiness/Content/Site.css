@@ -96,7 +96,7 @@ h2
 {
   float:left;
   color:#FF3CB1;
-  font-size:18px;
+  font-size:12px;
 }
 
 header,
@@ -175,7 +175,7 @@ ul#menu {padding:0;position:relative;margin:0 0 0 15px;text-align:right;}
 /* tab background color */
 ul#menu li {display:block;list-style:none;background:#FFFF44 no-repeat 0 -150px;float:right;margin:0 2px 0 0;font-size:.8em;}
 /* tab font color */
-ul#menu li a {padding:10px 18px;font-weight:bold;text-decoration:none;color:#000;background: transparent no-repeat right -150px;display:block;}
+ul#menu li a {padding:10px 10px;font-weight:bold;text-decoration:none;color:#000;background: transparent no-repeat right -150px;display:block;}
 ul#menu li a:hover {text-decoration:none;color:#FF3CB1;}
 ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
