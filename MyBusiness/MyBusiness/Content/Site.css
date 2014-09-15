@@ -184,6 +184,7 @@ ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
 ul#menu li.selected a {color:#000;}
 
+/* silver bar at top*/
 .ui-widget-header
 {
     background:transparent !important;
@@ -197,9 +198,7 @@ ul#menu li.selected a {color:#000;}
 
 .ui-tabs .ui-tabs-nav{
     padding: 0 !important;
-    position:absolute;
-    margin:-32px -1px 0;
-    border: none;
+    border:none;
 }
 
 #tabs {border: none}
