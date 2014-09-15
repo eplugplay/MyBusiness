@@ -1,4 +1,4 @@
-html {
+﻿html {
     /*background:url("/Images/turquoise-pattern.gif") no-repeat;
     background-repeat:repeat;*/
     /*background-color : black;*/
@@ -184,7 +184,40 @@ ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
 ul#menu li.selected a {color:#000;}
 
+.ui-widget-header
+{
+    background:transparent !important;
+}
+
+.ui-tabs{
+    padding: 0 !important;
+    margin-top:0px;
+    position:relative;
+}
+
+.ui-tabs .ui-tabs-nav{
+    padding: 0 !important;
+    position:absolute;
+    margin:-32px -1px 0;
+    border: none;
+}
+
+#tabs {border: none}
+
+
 /*
+#.ui-tabs{
+    padding: 0 !important;
+    margin-top:40px;
+    position:relative;
+}
+
+#.ui-tabs .ui-tabs-nav{
+    padding: 0 !important;
+    position:absolute;
+    margin:-32px -1px 0; //compensation
+}
+
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
     color: #0000ff;
 }
