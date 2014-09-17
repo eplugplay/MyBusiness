@@ -17,11 +17,17 @@ namespace MyBusiness.Controllers
             return View(new ImageModel("ApparelsImages"));
         }
 
-        /*[HttpPost]
-        public ActionResult GetFolder(string folder)
+        [HttpPost]
+        public PartialViewResult ReloadApparelsWomen()
         {
-            return View(new ImageModel(folder));
-        }*/
+            return PartialView("_ApparelsWomen", new ImageModel("ApparelsImages"));
+        }
+
+        [HttpPost]
+        public PartialViewResult ReloadApparelsMen()
+        {
+            return PartialView("_ApparelsMen", new ImageModel("ApparelsImages"));
+        }
 
     }
 }

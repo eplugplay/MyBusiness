@@ -15,50 +15,43 @@
 
  <script type="text/javascript">
 
-     function LoadImg(tab, path, desc) {
+     function UpdateWomen() {
+         $.ajax({
+             url: '@Url.Action("ReloadNewArrivalsWomen", "NewArrivals")',
+             data: {},
+             type: 'POST',
+             success: function (data) {
+                 $('#tabs-1').html(data);
+             }
+         });
+     }
+
+
+     function UpdateMen() {
+         $.ajax({
+             url: '@Url.Action("ReloadNewArrivalsMen", "NewArrivals")',
+             data: {},
+             type: 'POST',
+             success: function (data) {
+                 $('#tabs-2').html(data);
+             }
+         });
+     }
+
+     function UpdateView(tab, path, desc) {
          if (tab == "tabs-1") {
-             $('#' + tab).html('<a href="http://www.donnas-fashion.com/NewArrivals">Go back </a> <br><img src="' + path + '" width=100% height=100% /> <br>' + desc);
+             $('#' + tab).html('<button onclick="UpdateWomen(); ">Go back</button> <br><img src="' + path + '" width=100% height=100% /> <br>' + desc);
          }
          else {
-             $('#' + tab).html('<a href="http://www.donnas-fashion.com/NewArrivals">Go back </a> <br><img src="' + path + '" width=100% height=100% /> <br>' + desc);
+             $('#' + tab).html('<button onclick="UpdateMen(); ">Go back</button> <br><img src="' + path + '" width=100% height=100% /> <br>' + desc);
          }
      }
 
+
      $(function () {
 
-         $("#tab1").on("click", function () {
-             location.reload();
-             $('#tabs').tabs('select', '#tab1');
-         });
-         $("#tab2").on("click", function () {
-             location.reload();
-             $('#tabs').tabs('select', '#tab2');
-         });
-
-         //  Define friendly index name
-         var index = 'key';
-         //  Define friendly data store name
-         var dataStore = window.sessionStorage;
-
-         //  Start magic!
-         try {
-             // getter: Fetch previous value
-             var oldIndex = dataStore.getItem(index);
-         } catch (e) {
-             // getter: Always default to first tab in error state
-             var oldIndex = 0;
-         }
-
          $("#tabs").tabs({
-             // The zero-based index of the panel that is active (open)
-             active: oldIndex,
-             // Triggered after a tab has been activated
-             activate: function (event, ui) {
-                 //  Get future value
-                 var newIndex = ui.newTab.parent().children().index(ui.newTab);
-                 //  Set future value
-                 dataStore.setItem(index, newIndex)
-             }
+
          });
 
          $("#tabs").tabs().css({
@@ -66,45 +59,6 @@
              'overflow': 'auto',
              'font-size': '10pt'
          });
-
-         /* $("#tab1").on("click", function () {
-         location.reload();
-         $.ajax({
-         type: "POST",
-         cache: false,
-         url: "@Url.Action("GetFolder", "Mens Apparels")",
-         contentType: "application/json; charset=utf-8",
-         data: "{'Folder': 'Mens Apparels'}",
-         dataType: "json",
-         success: function (result) {
-         alert("ok: " + result.d);
-         },
-         error: function (result) {
-         alert('Oh no: ' + result.responseText);
-         }
-         });
-
-         });
-
-
-         $("#tab2").on("click", function () {
-         location.reload();
-         $.ajax({
-         type: "POST",
-         cache: false,
-         url: "@Url.Action("GetFolder", "Womens Apparels")",
-         contentType: "application/json; charset=utf-8",
-         data: "{'folder': 'Womens Apparels'}",
-         dataType: "json",
-         success: function (result) {
-         alert("ok: " + result.d);
-         },
-         error: function (result) {
-         alert('Oh no: ' + result.responseText);
-         }
-         });
-
-         });*/
 
      });
 
@@ -119,56 +73,10 @@
 <li id="tab2"><a href="#tabs-2">Men's</a></li>
 </ul>
 <div id="tabs-1">
-<table>
-  @{int count = 0;}
-   @foreach (var image in ViewData.Model)
-   {
-       if (image.Folder == "Women")
-       {
-           if (count % 8 == 0)
-           {
-             <tr></tr>    
-           }
-           <td>
-   <div class="imageItem">
-   <span class="image">
-        <!--<a href="NewArrivalsImages/@image.Path">-->
-         <img class="imgSingle" style="cursor:pointer;" src="NewArrivalsImages/@image.Path" onclick="LoadImg('tabs-1', 'NewArrivalsImages/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
-        <br />
-        <span class="description">@image.Description</span>
-   </span>
-   </div>
-   </td>
-           count++;
-       }
-   }
-   </table>
+ @Html.Partial("_NewArrivalsWomen")
 </div>
 <div id="tabs-2">
-<table>
- @{int count2 = 0;}
-   @foreach (var image in ViewData.Model)
-   {
-       if (image.Folder == "Men")
-       {
-           if (count2 % 8 == 0)
-           {
-             <tr></tr>    
-           }
-           <td>
-              <div class="imageItem">
-   <span class="image">
-         <!--<a href="NewArrivalsImages/@image.Path">-->
-         <img class="imgSingle" style="cursor:pointer;" src="NewArrivalsImages/@image.Path" onclick="LoadImg('tabs-2', 'NewArrivalsImages/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
-        <br />
-        <span class="description">@image.Description</span>
-   </span>
-   </div>
-   </td>
-           count2++;
-       }
-   }
-   </table>
+ @Html.Partial("_NewArrivalsMen")
 </div>
 </div>
 

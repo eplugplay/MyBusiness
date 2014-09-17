@@ -17,5 +17,16 @@ namespace MyBusiness.Controllers
             return View(new ImageModel("ShirtsImages"));
         }
 
+        [HttpPost]
+        public PartialViewResult ReloadShirtsWomen()
+        {
+            return PartialView("_ShirtsWomen", new ImageModel("ShirtsImages"));
+        }
+
+        [HttpPost]
+        public PartialViewResult ReloadShirtsMen()
+        {
+            return PartialView("_ShirtsMen", new ImageModel("ShirtsImages"));
+        }
     }
 }

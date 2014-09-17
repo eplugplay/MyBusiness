@@ -1,0 +1,24 @@
+﻿<table>
+@{int count = 0;}
+   @foreach (var image in ViewData.Model)
+   {
+       if (image.Folder == "Women")
+       {
+           if (count % 8 == 0)
+           {
+             <tr></tr>    
+           }
+           <td>
+   <div class="imageItem">
+   <span class="image">
+        <!--<a href="PantsImages/@image.Path">-->
+        <img class="imgSingle" style="cursor:pointer;" src="PantsImages/@image.Path" onclick="UpdateView('tabs-1', 'PantsImages/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
+        <br />
+        <span class="description">@image.Description</span>
+   </span>
+   </div>
+   </td>
+           count++;
+       }
+   }
+   </table>
