@@ -98,6 +98,7 @@ h2
   font-size:18px;
   width:160px;
   margin-left: 15px;
+  margin-top: -40px;
 }
 
 header,
@@ -182,6 +183,7 @@ ul#menu li a:hover {text-decoration:none;color:#FF3CB1;}
 ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
 ul#menu li.selected a {color:#000;}
+
 
 /* silver bar at top*/
 .ui-widget-header

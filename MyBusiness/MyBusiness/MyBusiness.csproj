@@ -90,6 +90,9 @@
     <Content Include="ApparelsImages\1.jpg" />
     <Content Include="ApparelsImages\7-wo.jpg" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Images\down.gif" />
+    <Content Include="Images\leftedge.gif" />
+    <Content Include="Images\rightedge.gif" />
     <Content Include="NewArrivalsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -97,6 +100,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="RhinestoneImages\ImageMetaData.xml" />
+    <Content Include="Scripts\droplinemenu.js" />
+    <Content Include="Content\droplinetabs.css" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
