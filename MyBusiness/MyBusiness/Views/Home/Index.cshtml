@@ -9,25 +9,71 @@
 <html>
 <head>
     <title>Home</title>
+    <style>
+        #slideshow
+        {
+            margin: 50px auto;
+            position: relative;
+            width: 240px;
+            height: 240px;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+        
+        #slideshow > div
+        {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("#slideshow > div:gt(0)").hide();
 
- <script type="text/javascript">
+            setInterval(function () {
+                $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+            }, 3000);
+        });
     </script>
 </head>
 <body>
-        <div class="content-wrapper">
+    <div class="content-wrapper">
         <br />
-        <div class ="bar"><span class="barText"><h2>Welcome!</h2></span></div>
-            <br />
-                <br />
-              <div style="text-align:center">
-              <!--<img id="IntroPic" src="@Url.Content("/Images/welcome.png")" alt="Welcome Mat" /> -->
-              </div>
-            <p>
-            Coming Soon!
-              <br />
-              <br />
-            </p>
+        <div class="bar">
+            <span class="barText">
+                <h2>
+                    Welcome!</h2>
+            </span>
         </div>
-
+        <br />
+        <br />
+       <!-- <div id="slideshow">
+            <div>
+                <img src="http://farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg">
+            </div>
+            <div>
+                <img src="http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg">
+            </div>
+            <div>
+                Pretty cool eh? This slide is proof the content can be anything.
+            </div>
+        </div>-->
+        <div style="text-align: center">
+            <!--<img id="IntroPic" src="@Url.Content("/Images/welcome.png")" alt="Welcome Mat" /> -->
+        </div>
+        <p>
+            Coming Soon!
+            <br />
+            <br />
+        </p>
+    </div>
 </body>
 </html>
