@@ -93,12 +93,12 @@ h2
 .CompanyName
 {
   position:absolute;
-  float:left;
+  float:right;
   color:#FF3CB1;
   font-size:18px;
   width:160px;
   margin-left: 15px;
-  margin-top: -40px;
+  margin-top: -37px;
 }
 
 header,
@@ -440,11 +440,13 @@ ul#menu li.selected a {color:#000;}
 
 .CompanyName
 {
-  position:absolute;  
-  float:left;
+  position:absolute;
+  float:right;
   color:#FF3CB1;
-  font-size:11px;
-  margin-left: 15px;
+  font-size:18px;
+  width:160px;
+  margin-left: 5px;
+  margin-top: -36px;
 }
 
 .bar
