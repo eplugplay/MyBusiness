@@ -7,26 +7,26 @@ using MyBusiness.Models;
 
 namespace MyBusiness.Controllers
 {
-    public class HatsController : Controller
+    public class CapsController : Controller
     {
         //
         // GET: /Hats/
 
         public ActionResult Index()
         {
-            return View(new ImageModel("HatsImages"));
+            return View(new ImageModel("CapsImages"));
         }
 
         [HttpPost]
-        public PartialViewResult ReloadHatsWomen()
+        public PartialViewResult ReloadCapsWomen()
         {
-            return PartialView("_HatsWomen", new ImageModel("HatsImages"));
+            return PartialView("_CapsWomen", new ImageModel("CapsImages"));
         }
 
         [HttpPost]
-        public PartialViewResult ReloadHatsMen()
+        public PartialViewResult ReloadCapsMen()
         {
-            return PartialView("_HatsMen", new ImageModel("HatsImages"));
+            return PartialView("_CapsMen", new ImageModel("CapsImages"));
         }
 
     }

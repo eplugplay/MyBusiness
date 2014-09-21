@@ -17,7 +17,7 @@
 
      function UpdateWomen() {
          $.ajax({
-             url: '@Url.Action("ReloadHatsWomen", "Hats")',
+             url: '@Url.Action("ReloadCapsWomen", "Caps")',
              data: {},
              type: 'POST',
              success: function (data) {
@@ -29,7 +29,7 @@
 
      function UpdateMen() {
          $.ajax({
-             url: '@Url.Action("ReloadHatsMen", "Hats")',
+             url: '@Url.Action("ReloadCapsMen", "Caps")',
              data: {},
              type: 'POST',
              success: function (data) {
@@ -78,10 +78,10 @@
 <li id="tab2"><a href="#tabs-2">Men's</a></li>
 </ul>
 <div id="tabs-1">
- @Html.Partial("_HatsWomen")
+ @Html.Partial("_CapsWomen")
 </div>
 <div id="tabs-2">
- @Html.Partial("_HatsMen")
+ @Html.Partial("_CapsMen")
 </div>
 </div>
 

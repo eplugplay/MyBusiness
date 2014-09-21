@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<images>
+  <!--Men-->-->
+  <image>
+    <filename>sample 1.jpg</filename>
+    <description>Sample 1</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 2.jpg</filename>
+    <description>Sample 2</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 3.jpg</filename>
+    <description>Sample 3</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 4.jpg</filename>
+    <description>Sample 4</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 5.jpg</filename>
+    <description>Sample 5</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 6.jpg</filename>
+    <description>Sample 6</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 7.jpg</filename>
+    <description>Sample 7</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 8.jpg</filename>
+    <description>Sample 8</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 1.jpg</filename>
+    <description>Sample 1</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 2.jpg</filename>
+    <description>Sample 2</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 3.jpg</filename>
+    <description>Sample 3</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 4.jpg</filename>
+    <description>Sample 4</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 5.jpg</filename>
+    <description>Sample 5</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 6.jpg</filename>
+    <description>Sample 6</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 7.jpg</filename>
+    <description>Sample 7</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 8.jpg</filename>
+    <description>Sample 8</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 1.jpg</filename>
+    <description>Sample 1</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 2.jpg</filename>
+    <description>Sample 2</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 3.jpg</filename>
+    <description>Sample 3</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 4.jpg</filename>
+    <description>Sample 4</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 5.jpg</filename>
+    <description>Sample 5</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 6.jpg</filename>
+    <description>Sample 6</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 7.jpg</filename>
+    <description>Sample 7</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>sample 8.jpg</filename>
+    <description>Sample 8</description>
+    <gender>Men</gender>
+  </image>
+
+  <!--Women-->-->
+  <image>
+    <filename>1.jpg</filename>
+    <description>Sample 1</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>2.jpg</filename>
+    <description>Sample 2</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>3.jpg</filename>
+    <description>Sample 3</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>4.jpg</filename>
+    <description>Sample 4</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>5.jpg</filename>
+    <description>Sample 5</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>6.jpg</filename>
+    <description>Sample 6</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>7.jpg</filename>
+    <description>Sample 7</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>8.jpg</filename>
+    <description>Sample 8</description>
+    <gender>Women</gender>
+  </image>
+</images>
+
+

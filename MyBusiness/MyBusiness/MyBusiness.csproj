@@ -69,7 +69,7 @@
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ApparelController.cs" />
-    <Compile Include="Controllers\HatsController.cs" />
+    <Compile Include="Controllers\CapsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\NewArrivalsController.cs" />
@@ -87,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CapsImages\ImageMetaData.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\ie.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
@@ -181,7 +184,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Hats\Index.cshtml" />
+    <Content Include="Views\Caps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -216,9 +219,7 @@
   <ItemGroup>
     <Content Include="Views\Shirts\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HatsImages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Shared\_ApparelsMen.cshtml" />
   </ItemGroup>
@@ -226,10 +227,10 @@
     <Content Include="Views\Shared\_ApparelsWomen.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_HatsMen.cshtml" />
+    <Content Include="Views\Shared\_CapsMen.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_HatsWomen.cshtml" />
+    <Content Include="Views\Shared\_CapsWomen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_NewArrivalsWomen.cshtml" />
