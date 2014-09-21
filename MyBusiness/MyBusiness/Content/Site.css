@@ -68,12 +68,10 @@ body
 h2
 {
     margin-left:50px;
-    font-family: Arial;
 }
 
 .bar
 {
-    margin-top: -15px;
     height: 50px;
     width: 100%;
     margin-bottom: 2px;
@@ -421,6 +419,11 @@ ul#menu li a:active {text-decoration:none;color:#009933;}
 ul#menu li.selected {background:#FF3CB1 no-repeat 0 -150px;}
 ul#menu li.selected a {color:#000;}
 
+.subMenuSpacing
+{
+    margin-left:206px;
+}
+
 /*image sizes*/
 .imgSingle
 {
@@ -451,7 +454,6 @@ ul#menu li.selected a {color:#000;}
 
 .bar
 {
-    margin-top: -10px;
     height: 30px;
     width: 100%;
     margin-bottom: 2px;
