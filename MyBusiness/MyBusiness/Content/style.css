@@ -58,7 +58,7 @@ ul.dropdown                         { position: relative; }
 ul.dropdown li                      { font-weight: bold; float: right; background: #FFFF44 no-repeat 0 -150px; list-style:none; margin:0 1px 0 0;font-size:8px;}
 ul.dropdown a:hover		            { color: #000; }
 ul.dropdown a:active                { color: #ffa500; }
-ul.dropdown li a                    { display: block; padding: 8px 16px; border-right: 1px solid #333; color: #222; }
+ul.dropdown li a                    { display: block; padding: 4px 10px; border-right: 1px solid #333; color: #222; }
 ul.dropdown li.selected             {background:#FF3CB1 no-repeat 0 -150px;}
 ul.dropdown li.selected a           {color:#000;}
 

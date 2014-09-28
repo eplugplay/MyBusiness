@@ -1,7 +1,7 @@
 ﻿@using MyBusiness.Models
 
 @{
-    ViewBag.Title = "New Arrivals!";
+    ViewBag.Title = "Apparels";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,14 +10,15 @@
 <html>
 <head>
 <br />
-<div class ="bar"><span class="barText"><h2>New Arrivals!</h2></span></div>
+<div class ="bar"><span class="barText"><h2>Kids Caps</h2></span></div>
  
 
  <script type="text/javascript">
 
-     function UpdateWomen() {
+
+     function UpdateGirls() {
          $.ajax({
-             url: '@Url.Action("ReloadNewArrivalsWomen", "NewArrivals")',
+             url: '@Url.Action("ReloadKidsCapsGirls", "KidsCaps")',
              data: {},
              type: 'POST',
              success: function (data) {
@@ -27,9 +28,9 @@
      }
 
 
-     function UpdateMen() {
+     function UpdateBoys() {
          $.ajax({
-             url: '@Url.Action("ReloadNewArrivalsMen", "NewArrivals")',
+             url: '@Url.Action("ReloadKidsCapsBoys", "KidsCaps")',
              data: {},
              type: 'POST',
              success: function (data) {
@@ -40,21 +41,20 @@
 
      function UpdateView(tab, path, desc) {
          if (tab == "tabs-1") {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateGirls(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateGirls(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
          else {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateBoys(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateBoys(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
      }
-
 
      $(function () {
 
          $("#tab1").on("click", function () {
-             UpdateMen();
+             UpdateBoys();
          });
          $("#tab2").on("click", function () {
-             UpdateWomen();
+             UpdateGirls();
          });
 
          $("#tabs").tabs({
@@ -64,26 +64,29 @@
          $("#tabs").tabs().css({
              'height': '660px',
              'overflow': 'auto',
+             /*'background': 'lightblue',*/
              'font-size': '10pt'
          });
+
 
      });
 
 
-    </script>
+ </script>
 </head>
 <body>
 <br />
    <div id="tabs">
 <ul>
-<li id="tab1"><a href="#tabs-1">Women's</a></li>
-<li id="tab2"><a href="#tabs-2">Men's</a></li>
+<li id="tab1"><a href="#tabs-1">Girls</a></li>
+<li id="tab2"><a href="#tabs-2">Boys</a></li>
 </ul>
 <div id="tabs-1">
- @Html.Partial("_NewArrivalsWomen")
+ @Html.Partial("_KidsCapsGirls")
 </div>
 <div id="tabs-2">
- @Html.Partial("_NewArrivalsMen")
+ @Html.Partial("_KidsCapsBoys")
+
 </div>
 </div>
 

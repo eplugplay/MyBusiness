@@ -2,7 +2,7 @@
  @{int count2 = 0;}
    @foreach (var image in ViewData.Model)
    {
-       if (image.Folder == "Men")
+       if (image.Folder == "Women")
        {
            if (count2 % 8 == 0)
            {
@@ -11,8 +11,8 @@
            <td>
               <div class="imageItem">
    <span class="image">
-         <!--<a href="NewArrivalsImages/@image.Path">-->
-         <img class="imgSingle" style="cursor:pointer;" src="NewArrivalsImages/@image.Path" onclick="UpdateView('tabs-2', 'NewArrivalsImages/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
+        <!--<a href="ApparelsImages/@image.Path">-->
+        <img class="imgSingle" style="cursor:pointer;" src="EmCapsImages/@image.Path" onclick="UpdateView('tabs-2', 'EmCapsImages/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
         <br />
         <span class="description">@image.Description</span>
    </span>
@@ -21,4 +21,4 @@
            count2++;
        }
    }
-   </table>
+</table>
