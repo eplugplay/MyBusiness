@@ -13,19 +13,19 @@ namespace MyBusiness.Controllers
         // GET: /Glitter/
         public ActionResult Index()
         {
-            return View(new ImageModel("GlitterImages"));
+            return View(new ImageModel("GlitterShirtsImages"));
         }
 
         [HttpPost]
         public PartialViewResult ReloadEmGlitterShirtsWomen()
         {
-            return PartialView("_GlitterShirtsWomen", new ImageModel("GlitterImages"));
+            return PartialView("_GlitterShirtsWomen", new ImageModel("GlitterShirtsImages"));
         }
 
         [HttpPost]
         public PartialViewResult ReloadGlitterShirtsMen()
         {
-            return PartialView("_GlitterShirtsMen", new ImageModel("GlitterImages"));
+            return PartialView("_GlitterShirtsMen", new ImageModel("GlitterShirtsImages"));
         }
 
     }
