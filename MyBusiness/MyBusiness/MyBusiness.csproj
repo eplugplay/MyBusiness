@@ -246,9 +246,6 @@
     <Content Include="Views\Shirts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Embroidery\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_ApparelsMen.cshtml" />
   </ItemGroup>
   <ItemGroup>

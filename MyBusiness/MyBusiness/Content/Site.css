@@ -224,6 +224,9 @@ ul#menu li.selected a
 
 #tabs
 {
+    height: 660px;
+    overflow: auto;
+    font-size: 10pt;  
     border: none;
 }
 
@@ -403,7 +406,15 @@ footer
         color: #232323;
         background-color: #000000;
     }
+    
+    /*javascript men/women section*/
 
+    #tabs
+    {
+    height: 300px;
+    overflow: auto;
+    font-size: 10pt;  
+    }
     /* header
         ----------------------------------------------------------*/
     /*top tab*/
@@ -572,8 +583,6 @@ footer
         width: 70%;
     }
 
-
-
     #FbImg
     {
         width: 30px;
@@ -609,6 +618,7 @@ footer
         padding-left: 4px;
         padding-right: 4px;
         width: 660px;
+        height:500px;
         background-color: #fff;
         padding-bottom: 0px; /*border-left: 2px solid #FFF;     border-right: 2px solid #FFF;     border-top: 2px solid #FFF;*/ /*border-top-left-radius:15px;     border-top-right-radius:5px;*/
     }
