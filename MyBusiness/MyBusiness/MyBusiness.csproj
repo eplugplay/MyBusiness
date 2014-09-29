@@ -112,11 +112,9 @@
     <Content Include="GlitterShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="HomeScrollImages\12.jpg" />
     <Content Include="HomeScrollImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="HomeScrollImages\images2.jpg" />
     <Content Include="Images\down.gif" />
     <Content Include="Images\leftedge.gif" />
     <Content Include="Images\rightedge.gif" />

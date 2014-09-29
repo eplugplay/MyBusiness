@@ -55,7 +55,10 @@
         </div>
         <br />
         <br />
-         <!--@Html.Partial("_HomeImageScroll")-->
+        @if (ViewData.Model.Count > 0)
+        {
+         @Html.Partial("_HomeImageScroll")
+        }
         <div class="WelcomeMsg">
             Coming Soon!
             <br />
