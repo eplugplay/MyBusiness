@@ -183,6 +183,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\SlideShow.js" />
     <Content Include="ShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
