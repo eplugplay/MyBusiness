@@ -295,6 +295,17 @@ footer
 
 /* Home */
 
+.WelcomeMsg
+{
+    text-align:center;
+    font-size:larger;
+}
+
+#slideshow
+{
+     
+}
+
 /* About Me */
 .StoreHours
 {
@@ -548,6 +559,16 @@ ul#menu li.selected a {color:#000;}
 }
 
 /* Home */
+.WelcomeMsg
+{
+    text-align:center;
+    font-size:larger;
+}
+
+#slideshow
+{
+
+}
 
 /* About Me */
 
