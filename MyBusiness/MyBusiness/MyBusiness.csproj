@@ -70,9 +70,11 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ApparelController.cs" />
     <Compile Include="Controllers\CapsController.cs" />
+    <Compile Include="Controllers\DressController.cs" />
     <Compile Include="Controllers\EmCapsController.cs" />
     <Compile Include="Controllers\EmPursesController.cs" />
     <Compile Include="Controllers\EmShirtsController.cs" />
+    <Compile Include="Controllers\GauchosController.cs" />
     <Compile Include="Controllers\GlitterShirtsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KidsCapsController.cs" />
@@ -100,6 +102,9 @@
     <Content Include="Content\ie.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="DressImages\ImageMetaData.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="EmCapsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -107,6 +112,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="EmShirtsImages\ImageMetaData.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="GauchosImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="GlitterShirtsImages\ImageMetaData.xml">
@@ -340,6 +348,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_HomeImageScroll.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dress\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DressWomen.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_GauchosWomen.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Gauchos\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
