@@ -19,13 +19,13 @@ namespace MyBusiness.Models
             if (folder == "HomeScrollImages")
             {
                 dt = uti.GetRandomInfo(folder);
-                var images = from image in dt.AsEnumerable() select new Image(image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
+                var images = from image in dt.AsEnumerable() select new Image(image.Field<string>("folder"), image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
                 this.AddRange(images.ToList<Image>());
             }
             else
             {
                 dt = uti.GetInfo(folder);
-                var images = from image in dt.AsEnumerable() orderby image.Field<string>("filename") select new Image(image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
+                var images = from image in dt.AsEnumerable() orderby image.Field<string>("filename") select new Image(image.Field<string>("folder"), image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
                 this.AddRange(images.ToList<Image>());
             }
         }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="MainDbEntities" />
+  <Alias Key="Target" Value="MainDbEntities.Store" />
+  <EntityContainerMapping CdmEntityContainer="MainDbEntitiesContainer" StorageEntityContainer="MainDbEntitiesStoreContainer">
+    <EntitySetMapping Name="systemusers">
+      <EntityTypeMapping TypeName="MainDbEntities.systemuser">
+        <MappingFragment StoreEntitySet="systemusers">
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

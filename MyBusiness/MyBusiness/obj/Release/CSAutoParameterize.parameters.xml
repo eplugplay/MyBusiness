@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MyBusinessCnn-Web.config Connection String" description="MyBusinessCnn Connection String used in web.config by the application to access the database." defaultValue="Server=MYSQL5005.Smarterasp.net;Database=db_9ae46c_myblog;Uid=9ae46c_myblog;Pwd=kings2014;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyBusinessCnn']/@connectionString" />
+  </parameter>
+  <parameter name="MainDbEntitiesContainer-Web.config Connection String" description="MainDbEntitiesContainer Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.MainDbEntities.csdl|res://*/Models.MainDbEntities.ssdl|res://*/Models.MainDbEntities.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=MYSQL5005.Smarterasp.net;User Id=9ae46c_myblog;password=kings2014;database=db_9ae46c_myblog&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MainDbEntitiesContainer']/@connectionString" />
+  </parameter>
+  <parameter name="ftp-Web.config Connection String" description="ftp Connection String used in web.config by the application to access the database." defaultValue="Wutsup54321@" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ftp']/@connectionString" />
+  </parameter>
+</parameters>

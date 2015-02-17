@@ -1,0 +1,93 @@
+﻿@using MyBusiness.Models
+
+@{
+    ViewBag.Title = "Apparels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<br />
+<div class ="bar"><span class="barText"><h2>Kids Shirts</h2></span></div>
+ 
+
+ <script type="text/javascript">
+
+
+     function UpdateGirls() {
+         $.ajax({
+             url: '@Url.Action("ReloadKidsShirtsGirls", "KidsShirts")',
+             data: {},
+             type: 'POST',
+             success: function (data) {
+                 $('#tabs-1').html(data);
+             }
+         });
+     }
+
+
+     function UpdateBoys() {
+         $.ajax({
+             url: '@Url.Action("ReloadKidsShirtsBoys", "KidsShirts")',
+             data: {},
+             type: 'POST',
+             success: function (data) {
+                 $('#tabs-2').html(data);
+             }
+         });
+     }
+
+     function UpdateView(tab, path, desc) {
+         if (tab == "tabs-1") {
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateGirls(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateGirls(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+         }
+         else {
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateBoys(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href="#" onclick="UpdateBoys(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+         }
+     }
+
+     $(function () {
+
+         $("#tab1").on("click", function () {
+             UpdateBoys();
+         });
+         $("#tab2").on("click", function () {
+             UpdateGirls();
+         });
+
+         $("#tabs").tabs({
+
+         });
+
+//         $("#tabs").tabs().css({
+//             'height': '660px',
+//             'overflow': 'auto',
+//             'font-size': '10pt'
+//         });
+
+
+     });
+
+
+ </script>
+</head>
+<body>
+<br />
+   <div id="tabs">
+<ul>
+<li id="tab1"><a href="#tabs-1">Girls</a></li>
+<li id="tab2"><a href="#tabs-2">Boys</a></li>
+</ul>
+<div id="tabs-1">
+ @Html.Partial("_KidsShirtsGirls")
+</div>
+<div id="tabs-2">
+ @Html.Partial("_KidsShirtsBoys")
+
+</div>
+</div>
+
+</body>
+</html>

@@ -20,7 +20,7 @@ namespace MyBusiness.Controllers
         [HttpPost]
         public PartialViewResult ReloadEmPurses()
         {
-            return PartialView("_EmPurses", new ImageModel("EmPursesImages"));
+            return PartialView("_AllImgWomen", new ImageModel("EmPursesImages"));
         }
     }
 }

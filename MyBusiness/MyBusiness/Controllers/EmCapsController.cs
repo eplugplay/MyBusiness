@@ -20,13 +20,13 @@ namespace MyBusiness.Controllers
         [HttpPost]
         public PartialViewResult ReloadEmCapsWomen()
         {
-            return PartialView("_EmCapsWomen", new ImageModel("EmCapsImages"));
+            return PartialView("_AllImgWomen", new ImageModel("EmCapsImages"));
         }
 
         [HttpPost]
         public PartialViewResult ReloadEmCapsMen()
         {
-            return PartialView("_EmCapsMen", new ImageModel("EmCapsImages"));
+            return PartialView("_AllImgMen", new ImageModel("EmCapsImages"));
         }
 
     }

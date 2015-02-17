@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<images>
+  <!--Men-->
+  <image>
+    <filename>1.jpg</filename>
+    <description>Brown Slacks</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>2.jpg</filename>
+    <description>Dark Brown</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>3.jpg</filename>
+    <description>Brown Khakis</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>4.jpg</filename>
+    <description>Sand Brown</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>5.jpg</filename>
+    <description>White Khakis</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>6.jpg</filename>
+    <description>Light Brown</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>7.jpg</filename>
+    <description>Orange Brown</description>
+    <gender>Men</gender>
+  </image>
+
+  <image>
+    <filename>8.jpg</filename>
+    <description>Light White</description>
+    <gender>Men</gender>
+  </image>
+
+
+<!--Women-->-->
+  <image>
+    <filename>1-wo.jpg</filename>
+    <description>Brown Slacks</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>2-wo.jpg</filename>
+    <description>Dark Brown</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>3-wo.jpg</filename>
+    <description>Brown Khakis</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>4-wo.jpg</filename>
+    <description>Sand Brown</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>5-wo.jpg</filename>
+    <description>White Khakis</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>6-wo.jpg</filename>
+    <description>Light Brown</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>7-wo.jpg</filename>
+    <description>Orange\Brown</description>
+    <gender>Women</gender>
+  </image>
+
+  <image>
+    <filename>8-wo.jpg</filename>
+    <description>Light White</description>
+    <gender>Women</gender>
+  </image>
+</images>
+
+

@@ -1,0 +1,11 @@
+﻿@if (Request.IsAuthenticated) {
+        <strong>@Html.Encode(User.Identity.Name)</strong>
+      @Html.ActionLink("Log Out", "LogOut", "User")
+}
+else
+{
+    <ul>
+   <!--  @Html.ActionLink("Register", "Registration", "User") -->
+        @Html.ActionLink("Log In", "LogIn", "User")
+    </ul>
+}
