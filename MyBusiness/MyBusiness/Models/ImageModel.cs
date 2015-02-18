@@ -10,7 +10,7 @@ namespace MyBusiness.Models
 {
     public class ImageModel:List<Image>
     {
-        public ImageModel(string folder)
+        public ImageModel(string folder, bool hidden)
         {
             //string directoryOfImage = HttpContext.Current.Server.MapPath("~/" + folder + "/");
             //XDocument imageData = XDocument.Load(directoryOfImage + @"/ImageMetaData.xml");
@@ -24,7 +24,7 @@ namespace MyBusiness.Models
             }
             else
             {
-                dt = uti.GetInfo(folder);
+                dt = uti.GetInfo(folder, hidden);
                 var images = from image in dt.AsEnumerable() orderby image.Field<string>("filename") select new Image(image.Field<string>("folder"), image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
                 this.AddRange(images.ToList<Image>());
             }

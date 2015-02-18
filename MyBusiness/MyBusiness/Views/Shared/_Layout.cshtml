@@ -98,6 +98,33 @@
 </head>
 
 <script type="text/javascript">
+    function LoadMsg(msg) {
+        $("#popupwindow").dialog({
+            autoOpen: false,
+            modal: true,
+            show: "fade",
+            title: "Information",
+            buttons: {
+                OK: function () { $(this).dialog("close"); }
+            }
+        });
+        $('#popupwindow').html(msg);
+        $("#popupwindow").dialog("open");
+    }
+
+    function LoadSecondaryMsg(msg) {
+        $("#popupwindow2").dialog({
+            autoOpen: false,
+            modal: true,
+            show: "fade",
+            title: "Information",
+            buttons: {
+                OK: function () { $(this).dialog("close"); }
+            }
+        });
+        $('#popupwindow2').html(msg);
+        $("#popupwindow2").dialog("open");
+    }
 </script>
     <header>
             <div class="content-wrapper">
@@ -151,6 +178,10 @@
     <div id="bodyInner">
                 @RenderBody()
     </div>
+    <body>
+    <div id="popupwindow" title="Information"></div>
+        <div id="popupwindow2" title="Information"></div>
+    </body>
             <footer>
               @Html.Partial("_FooterPartial")
         </footer>

@@ -19,7 +19,7 @@ namespace MyBusiness.Controllers
 
         public ActionResult Index()
         {
-            return View(new ImageModel("HomeScrollImages"));
+            return View(new ImageModel("HomeScrollImages", false));
         }
     }
 }

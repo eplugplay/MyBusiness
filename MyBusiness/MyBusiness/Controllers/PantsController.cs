@@ -14,19 +14,19 @@ namespace MyBusiness.Controllers
 
         public ActionResult Index()
         {
-            return View(new ImageModel("PantsImages"));
+            return View(new ImageModel("PantsImages", false));
         }
 
         [HttpPost]
         public PartialViewResult ReloadPantsWomen()
         {
-            return PartialView("_AllImgWomen", new ImageModel("PantsImages"));
+            return PartialView("_AllImgWomen", new ImageModel("PantsImages", false));
         }
 
         [HttpPost]
         public PartialViewResult ReloadPantsMen()
         {
-            return PartialView("_AllImgMen", new ImageModel("PantsImages"));
+            return PartialView("_AllImgMen", new ImageModel("PantsImages", false));
         }
     }
 }

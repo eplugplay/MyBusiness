@@ -10,6 +10,13 @@
 <br />
 <div class ="bar"><span class="barText"><h2>Manage Images</h2></span></div>
  
+    <style>
+        #btnNewImg{
+            width:120px;
+            height:25px;
+        }
+
+    </style>
 
  <script type="text/javascript">
 
@@ -44,8 +51,32 @@
                  $("#ddlCategories").append(optionhtml);
                  $(data).each(function (i) {
                      optionhtml = '<option value="' +
-        data[i].ImageID + '">' + data[i].ImageName + '</option>';
+        data[i].ID + '">' + data[i].Name + '</option>';
                      $("#ddlCategories").append(optionhtml);
+                 });
+                 return true;
+             }
+         });
+     }
+
+     function GetEditCategories() {
+         $("#ddlEditCategories").html("");
+         $.ajax({
+             type: "POST",
+             cache: false,
+             //this line needed to pass array
+             traditional: true,
+             url: "/Admin/LoadCategories",
+             dataType: "json",
+             async: false,
+             success: function (data) {
+                 var optionhtml = '<option value="' +
+        -1 + '">----select date</option>';
+                 $("#ddlEditCategories").append(optionhtml);
+                 $(data).each(function (i) {
+                     optionhtml = '<option value="' +
+        data[i].ID + '">' + data[i].Name + '</option>';
+                     $("#ddlEditCategories").append(optionhtml);
                  });
                  return true;
              }
@@ -80,32 +111,262 @@
          }
      }
 
-     function DeleteImage(path)
+     function DeleteImage(path) {
+         $("#popupwindow").dialog({
+             autoOpen: false,
+             modal: true,
+             show: "fade",
+             title: "Delete Image?",
+             buttons: {
+                 "Confirm": function () {
+                     $.ajax({
+                         type: "POST",
+                         cache: false,
+                         async: false,
+                         url: "/Admin/DeleteImage",
+                         dataType: "json",
+                         data: { path: path },
+                         async: false,
+                         success: function (data) {
+                             if (data == "Successful") {
+                                 UpdateWomen();
+                                 UpdateMen();
+                                 LoadMsg('Deleted Successfully.');
+                             }
+                             else {
+                                 LoadMsg('Did not delete Successfully.');
+                             }
+                             $("#popupwindow").dialog("close");
+                             return true;
+                         }
+                     });
+                 },
+                 "Cancel": function () {
+                     $(this).dialog("close");
+                 }
+             }
+         });
+         $("#popupwindow").html("Do you want to delete this image?");
+         $("#popupwindow").dialog("open");
+     }
+
+
+     function NewImage() {
+         $("#popupwindow").dialog({
+             autoOpen: false,
+             modal: true,
+             height: "550",
+             width: "500px",
+             show: "fade",
+             title: "Edit Image",
+             buttons: {
+                 OK: function () { $(this).dialog("close"); }
+             }
+         });
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><input type=\"file\" name=\"UploadPDF\" id=\"txtUploadFile\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><input style=\"float:right;margin-right:3px;width:100px;height:25px\" type=\"submit\" value=\"Save\" onclick=\"if(UploadImage()==false) return false;\"/> ")
+         $("#popupwindow").dialog("open");
+         GetEditCategories();
+     }
+
+     function UploadImage() {
+         var upload = $("#txtUploadFile").val();
+         var folder = $("#ddlEditCategories option:selected").val();
+         var description = $("#txtImgName").val();
+         var gender = $("#ddlGender option:selected").text();
+         var hidden = $("#chkHidden").is(':checked');
+         var id = $("#ddlEditCategories").val();
+         var formData = new FormData();
+         var imagefile = document.getElementById("txtUploadFile").files[0];
+         formData.append("1", imagefile);
+
+         //var split = path.split('/')
+         //var newPath = "/" + folder + "/" + split[split.length - 1]
+         //if (ValidateImage(newPath) == true) {
+         //    LoadSecondaryMsg('Image already exist');
+         //    return false;
+         //}
+
+         if (upload == "")
+         {
+             LoadSecondaryMsg("Please select an image first.");
+             return false;
+         }
+         if (id == -1) {
+             LoadSecondaryMsg("Please select category.");
+             return false;
+         }
+         if (description == "") {
+             LoadSecondaryMsg("Please enter description.");
+             return false;
+         }
+
+         $("#popupwindow2").dialog({
+             autoOpen: false,
+             modal: true,
+             show: "fade",
+             title: "Upload Image?",
+             buttons: {
+                 "Confirm": function () {
+                     $.ajax({
+                         type: "POST",
+                         url: "/Admin/UploadImage?description=" + description + "&gender=" + gender + "&folder=" + folder + "&hidden=" + hidden,
+                         contentType: false,
+                         processData: false,
+                         data: formData,
+                         async: false,
+                         success: function (data) {
+                             if (data == "Successful") {
+                                 LoadSecondaryMsg("Uploaded Successfully.");
+                                 UpdateWomen();
+                                 UpdateMen();
+                             }
+                             else {
+                                 LoadSecondaryMsg("Upload Failed.");
+                             }
+                             $("#popupwindow").dialog("close");
+                             return true;
+                         }
+                     });
+                 },
+                 "Cancel": function () {
+                     $(this).dialog("close");
+                 }
+             }
+         });
+         $("#popupwindow2").html("Do you want to upload this image?");
+         $("#popupwindow2").dialog("open");
+         return true;
+     }
+
+     function EditImage(path)
      {
-         alert(path);
+         var filename = null;
+         var description = null;
+         var gender = null;
+         var folder = null;
+         var hidden = null;
          $.ajax({
              type: "POST",
-             cache: false,
-             async: false,
-             url: "/Admin/DeleteImage",
+             url: "/Admin/GetImgInfo",
              dataType: "json",
              data: { path: path },
              async: false,
              success: function (data) {
-                 alert(data);
-                 UpdateWomen();
-                 UpdateMen();
-                 return true;
+                 $(data).each(function (i) {
+                     filename = data[i].ImageFileName;
+                     description = data[i].ImageDescription;
+                     gender = data[i].ImageGender;
+                     folder = data[i].ImageFolder;
+                     hidden = data[i].ImageHidden;
+                 });
              }
          });
+
+         $("#popupwindow").dialog({
+             autoOpen: false,
+             modal: true,
+             height: "550",
+             width: "500px",
+             show: "fade",
+             title: "Edit Image",
+             buttons: {
+                 OK: function () { $(this).dialog("close"); }
+             }
+         });
+         //$('#popupwindow').css('overflow', 'hidden');
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><img src=\"" + path + "\" width=\"50%\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><input style=\"float:right;margin-right:3px;width:100px;height:25px\" type=\"submit\" value=\"Update\" onclick=\"UpdateImgInfo(\'" + path + "\');\"/> ")
+         $("#popupwindow").dialog("open");
+         GetEditCategories();
+         $("#txtImgName").val(description);
+         $("#ddlEditCategories").val(folder);
+         $("#ddlGender").val(gender);
+         if (hidden == 0)
+         {
+             $("#chkHidden").attr('checked', false);
+         }
+         else
+         {
+             $("#chkHidden").attr('checked', true);
+         }
+     }
+
+     
+     function UpdateImgInfo(path) {
+         var folder = $("#ddlEditCategories option:selected").val();
+         var description = $("#txtImgName").val();
+         var gender = $("#ddlGender option:selected").text();
+         var hidden = $("#chkHidden").is(':checked');
+
+         var split = path.split('/')
+         var newPath = "/" + folder + "/" + split[split.length - 1]
+         if (ValidateImage(newPath) == true) {
+             LoadSecondaryMsg('Image already exist');
+             return false;
+         }
+
+         $("#popupwindow2").dialog({
+             autoOpen: false,
+             modal: true,
+             show: "fade",
+             title: "Update Image Info?",
+             buttons: {
+                 "Confirm": function () {
+                     $.ajax({
+                         type: "POST",
+                         cache: false,
+                         async: false,
+                         url: "/Admin/UpdateImgInfo",
+                         dataType: "json",
+                         data: { path: path, description: description, gender: gender, folder: folder, hidden: hidden },
+                         async: false,
+                         success: function (data) {
+                             if (data == "Successful") {
+                                 LoadSecondaryMsg('Updated Successfully.');
+                                 UpdateWomen();
+                                 UpdateMen();
+                             }
+                             else {
+                                 LoadSecondaryMsg('Did not update Successfully.');
+                             }
+                             $("#popupwindow").dialog("close");
+                             return true;
+                         }
+                     });
+                 },
+                 "Cancel": function () {
+                     $(this).dialog("close");
+                 }
+             }
+         });
+         $("#popupwindow2").html("Do you want to update this image's info?");
+         $("#popupwindow2").dialog("open");
+     }
+
+     function ValidateImage(path)
+     {
+         var exist = false;
+         $.ajax({
+             type: "POST",
+             url: "/Admin/ValidateImage",
+             dataType: "json",
+             data: { path: path },
+             async: false,
+             success: function (data) {
+                 if (data == "Exist")
+                 {
+                     exist = true;
+                 }
+             }
+         });
+         return exist;
      }
 
      function UpdateView(tab, path, desc) {
          if (tab == "tabs-1") {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><input style=\"float:right\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><input style=\"float:right;width:80px;height:25px\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><input style=\"float:right;margin-right:3px;width:80px;height:25px\" type=\"submit\" value=\"Edit\" onclick=\"EditImage(\'' + path + '\');\"/><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
          else {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><input style=\"float:right\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><input style=\"float:right\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><input style=\"float:right;margin-right:3px;\" type=\"submit\" value=\"Edit\" onclick=\"EditImage(\'' + path + '\');\"/><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
      }
 
@@ -134,6 +395,7 @@
 <br />
 <div id="tabs">
 <select id="ddlCategories"></select>
+<input id="btnNewImg" type="submit" value="Upload Image" onclick="NewImage()" />
 <br />
 <br />
 <ul>

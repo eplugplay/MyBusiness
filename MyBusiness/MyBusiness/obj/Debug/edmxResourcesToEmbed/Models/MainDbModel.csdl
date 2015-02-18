@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MainDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="MainDbModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mybusiness_categories" EntityType="MainDbModel.mybusiness_categories" />
+    <EntitySet Name="mybusiness_images" EntityType="MainDbModel.mybusiness_images" />
+    <EntitySet Name="systemusers" EntityType="MainDbModel.systemuser" />
+  </EntityContainer>
+  <EntityType Name="mybusiness_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" />
+    <Property Type="String" Name="category" />
+  </EntityType>
+  <EntityType Name="mybusiness_images">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="filename" />
+      <PropertyRef Name="length" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="filename" Nullable="false" />
+    <Property Type="String" Name="description" />
+    <Property Type="String" Name="gender" />
+    <Property Type="String" Name="folder" />
+    <Property Type="Int32" Name="length" Nullable="false" />
+    <Property Type="Int32" Name="hidden" />
+  </EntityType>
+  <EntityType Name="systemuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="false" />
+  </EntityType>
+</Schema>

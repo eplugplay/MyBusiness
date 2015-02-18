@@ -45,19 +45,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="mysql.data.entity.EF6">
-      <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net40\mysql.data.entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="SimpleCrypto">
       <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
@@ -115,13 +109,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlHelperExtensions.cs" />
-    <Compile Include="Models\Image.cs" />
-    <Compile Include="Models\ImageModel.cs" />
-    <Compile Include="Models\MainDbEntities.Designer.cs">
+    <Compile Include="Models\entDbMain.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MainDbEntities.edmx</DependentUpon>
+      <DependentUpon>entDbMain.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FTP.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\uti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,41 +125,27 @@
     <Content Include="CapsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="CapsImages\sample.jpg" />
-    <Content Include="CapsImages\sample2.jpg" />
     <Content Include="Content\ie.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="DressImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="DressImages\sample.jpg" />
-    <Content Include="DressImages\sample2.jpg" />
     <Content Include="EmCapsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="EmCapsImages\sample.jpg" />
-    <Content Include="EmCapsImages\sample2.jpg" />
     <Content Include="EmPursesImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="EmPursesImages\sample.jpg" />
-    <Content Include="EmPursesImages\sample2.jpg" />
     <Content Include="EmShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="EmShirtsImages\sample.jpg" />
-    <Content Include="EmShirtsImages\sample2.jpg" />
     <Content Include="GauchosImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="GauchosImages\sample.jpg" />
-    <Content Include="GauchosImages\sample2.jpg" />
     <Content Include="GlitterShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="GlitterShirtsImages\sample.jpg" />
-    <Content Include="GlitterShirtsImages\sample2.jpg" />
     <Content Include="HomeScrollImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -174,18 +155,12 @@
     <Content Include="KidsCapsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="KidsCapsImages\sample.jpg" />
-    <Content Include="KidsCapsImages\sample2.jpg" />
     <Content Include="KidsPantsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="KidsPantsImages\sample.jpg" />
-    <Content Include="KidsPantsImages\sample2.jpg" />
     <Content Include="KidsShirtsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="KidsShirtsImages\sample.jpg" />
-    <Content Include="KidsShirtsImages\sample2.jpg" />
     <Content Include="PantsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -352,12 +327,6 @@
     <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\MainDbEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MainDbEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -367,7 +336,12 @@
     <Content Include="Views\Shared\_AllImgWomen.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\entDbMain.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>entDbMain.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <Content Include="Views\Shared\_EditImages.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

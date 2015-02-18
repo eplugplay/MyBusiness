@@ -22,9 +22,18 @@ namespace MyBusiness.Models
         public string Gender { get; set; }
     }
 
+    public class ImageCategory
+    {
+        public string Name { get; set; }
+        public string ID { get; set; }
+    }
+
     public class ImageDetails
     {
-        public string ImageName { get; set; }
-        public string ImageID { get; set; }
+        public string ImageFileName { get; set; }
+        public string ImageDescription { get; set; }
+        public string ImageGender { get; set; }
+        public string ImageFolder { get; set; }
+        public int ImageHidden { get; set; }
     }
 }

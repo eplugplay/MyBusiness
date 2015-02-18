@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MainDbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MainDbModelStoreContainer">
+    <EntitySet Name="mybusiness_categories" EntityType="MainDbModel.Store.mybusiness_categories" store:Type="Tables" Schema="db_9ae46c_myblog" />
+    <EntitySet Name="mybusiness_images" EntityType="MainDbModel.Store.mybusiness_images" store:Type="Tables" Schema="db_9ae46c_myblog" />
+    <EntitySet Name="systemusers" EntityType="MainDbModel.Store.systemusers" store:Type="Tables" Schema="db_9ae46c_myblog" />
+  </EntityContainer>
+  <EntityType Name="mybusiness_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="category" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="mybusiness_images">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="filename" />
+      <PropertyRef Name="length" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="filename" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="gender" Type="enum" />
+    <Property Name="folder" Type="varchar" MaxLength="255" />
+    <Property Name="length" Type="int" Nullable="false" />
+    <Property Name="hidden" Type="int" />
+  </EntityType>
+  <EntityType Name="systemusers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="PasswordSalt" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+</Schema>

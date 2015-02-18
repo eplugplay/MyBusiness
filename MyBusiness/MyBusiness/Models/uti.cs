@@ -11,7 +11,7 @@ namespace MyBusiness.Models
 {
     public static class uti
     {
-        public static DataTable GetInfo(string folder)
+        public static DataTable GetInfo(string folder, bool hidden)
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
@@ -19,7 +19,14 @@ namespace MyBusiness.Models
                 cnn.Open();
                 using (var cmd = cnn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0";
+                    if (hidden == false)
+                    {
+                        cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder";
+                    }
                     cmd.Parameters.AddWithValue("folder", folder);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.Fill(dt);

@@ -22,10 +22,10 @@ namespace MyBusiness.Controllers
 
         public ActionResult Index()
         {
-            //if (!Request.IsAuthenticated)
-            //{
-            //    return RedirectToAction("LogIn", "User");
-            //}
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
             return View();
         }
 
@@ -33,13 +33,13 @@ namespace MyBusiness.Controllers
         [HttpPost]
         public PartialViewResult ReloadImgWomen(string Folder)
         {
-            return PartialView("_AllImgWomen", new ImageModel(Folder));
+            return PartialView("_AllImgWomen", new ImageModel(Folder, true));
         }
 
         [HttpPost]
         public PartialViewResult ReloadImgMen(string Folder)
         {
-            return PartialView("_AllImgMen", new ImageModel(Folder));
+            return PartialView("_AllImgMen", new ImageModel(Folder, true));
         }
 
         [HttpPost]
@@ -59,14 +59,14 @@ namespace MyBusiness.Controllers
             }
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            List<ImageDetails> listCategories = new List<ImageDetails>();
+            List<ImageCategory> listCategories = new List<ImageCategory>();
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ImageDetails objst = new ImageDetails();
-                    objst.ImageID = dt.Rows[i]["id"].ToString();
-                    objst.ImageName = dt.Rows[i]["category"].ToString();
+                    ImageCategory objst = new ImageCategory();
+                    objst.ID = dt.Rows[i]["id"].ToString();
+                    objst.Name = dt.Rows[i]["category"].ToString();
                     listCategories.Insert(i, objst);
                 }
             }
@@ -78,46 +78,185 @@ namespace MyBusiness.Controllers
         {
             try
             {
-                string uri = "ftp://208.118.63.29/site2" + path;
-                Uri serverUri = new Uri(uri);
-                if (serverUri.Scheme != Uri.UriSchemeFtp)
+                string[] split = path.Split('/');
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
                 {
-                    return Json("failed");
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"DELETE FROM mybusiness_images WHERE filename=@filename";
+                        cmd.Parameters.AddWithValue("filename", split[2]);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://208.118.63.29/site2" + path));
-                reqFTP.Credentials = new NetworkCredential("eplugplay-001", ConfigurationManager.ConnectionStrings["ftp"].ToString());
-                reqFTP.KeepAlive = false;
-                reqFTP.Method = WebRequestMethods.Ftp.DeleteFile;
-                reqFTP.UseBinary = true;
-                reqFTP.Proxy = null;
-                reqFTP.UsePassive = false;
-                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
-                response.Close();
 
-                // and optionally write the file to disk
-                //FileInfo fileInfo = new FileInfo("ftp://208.118.63.29/site2" + path);
-                //if (fileInfo.Exists)
-                //{
-                //    fileInfo.Delete();
-                //}
+                // delete image 
+                //FTP.DeleteImage(path, split[2]);
+                FileInfo fileInfo = new FileInfo(Server.MapPath(path));
+                if (fileInfo.Exists)
+                {
+                    fileInfo.Delete();
+                }
 
+            }
+            catch (Exception e)
+            {
+                return Json(e.Source);
+            }
+
+            return Json("Successful");
+        }
+
+        [HttpPost]
+        public JsonResult UploadImage(string description, string gender, string folder, string hidden)
+        {
+            string fileName = "";
+            int length = 0;
+            string path = "";
+            
+            try
+            {
+                foreach (string file in Request.Files)
+                {
+                    var fileContent = Request.Files[file];
+                    if (fileContent != null && fileContent.ContentLength > 0)
+                    {
+                        fileName = fileContent.FileName;
+                        string[] split = fileName.Split('\\');
+                        fileName = split[split.Length - 1];
+                        length = fileContent.ContentLength;
+                        var stream = fileContent.InputStream;
+                        path = Server.MapPath("/" + folder + "//" + fileName);
+                        using (var fileStream = System.IO.File.Create(path))
+                        {
+                            stream.CopyTo(fileStream);
+                        }
+                    }
+                }
+                
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"INSERT INTO mybusiness_images (filename, description, gender, folder, length, hidden) VALUES (@filename, @description, @gender, @folder, @length, @hidden)";
+                        cmd.Parameters.AddWithValue("filename", fileName);
+                        cmd.Parameters.AddWithValue("description", description);
+                        cmd.Parameters.AddWithValue("gender", gender);
+                        cmd.Parameters.AddWithValue("folder", folder);
+                        cmd.Parameters.AddWithValue("length", length);
+                        cmd.Parameters.AddWithValue("hidden", hidden);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception)
             {
-                return Json("Delete failed");
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Upload failed");
             }
 
-            return Json("File deleted successfully");
+            return Json("Successful");
         }
 
-        public string GetPath()
+        [HttpPost]
+        public JsonResult ValidateImage(string path)
         {
-            string toReturn = "";
-            toReturn = Server.MapPath("~");
-            string[] splitPath = toReturn.Split('\\');
-            toReturn = splitPath[0] + "//MBR0282-CoastalFlow//newsflash//PDF/";
-            return toReturn;
+            try
+            {
+                FileInfo fileInfo = new FileInfo(Server.MapPath(path));
+                if (fileInfo.Exists)
+                {
+                    return Json("Exist");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return Json("OK");
+        }
+
+        [HttpPost]
+        public JsonResult UpdateImgInfo(string path, string description, string gender, string folder, bool hidden)
+        {
+            string[] split = path.Split('/');
+            int Hidden = hidden ? 1 : 0;
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"UPDATE mybusiness_images SET description=@description, gender=@gender, folder=@folder, hidden=@hidden where filename=@filename";
+                        cmd.Parameters.AddWithValue("filename", split[2]);
+                        cmd.Parameters.AddWithValue("description", description);
+                        cmd.Parameters.AddWithValue("gender", gender);
+                        cmd.Parameters.AddWithValue("folder", folder);
+                        cmd.Parameters.AddWithValue("hidden", Hidden);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // delete image from old folder
+                FileInfo fileInfo = new FileInfo(Server.MapPath(path));
+                if (fileInfo.Exists)
+                {
+                    // copy image to new folder
+                    System.IO.File.Copy(Server.MapPath(path), Server.MapPath("\\" + folder + "\\" + split[2]));
+                    fileInfo.Delete();
+                }
+            }
+            catch
+            {
+                return Json("Failed to update");
+            }
+            return Json("Successful");
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public string GetImgInfo(string path)
+        {
+            DataTable dt = new DataTable();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<ImageDetails> listInfo = new List<ImageDetails>();
+            string[] split = path.Split('/');
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"SELECT filename, description, gender, folder, hidden FROM mybusiness_images where filename=@filename";
+                        cmd.Parameters.AddWithValue("filename", split[2]);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+                
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        ImageDetails objst = new ImageDetails();
+                        objst.ImageFileName = dt.Rows[i]["filename"].ToString();
+                        objst.ImageDescription = dt.Rows[i]["description"].ToString();
+                        objst.ImageGender = dt.Rows[i]["gender"].ToString();
+                        objst.ImageFolder = dt.Rows[i]["folder"].ToString();
+                        objst.ImageHidden = Convert.ToInt32(dt.Rows[i]["hidden"]);
+                        listInfo.Insert(i, objst);
+                    }
+                }
+            }
+            catch
+            {
+                return serializer.Serialize("Failed.");
+            }
+            return serializer.Serialize(listInfo);
         }
     }
 }

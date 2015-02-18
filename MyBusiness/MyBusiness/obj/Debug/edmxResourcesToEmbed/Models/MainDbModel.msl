@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="MainDbModel" />
+  <Alias Key="Target" Value="MainDbModel.Store" />
+  <EntityContainerMapping CdmEntityContainer="MainDbModelContainer" StorageEntityContainer="MainDbModelStoreContainer">
+    <EntitySetMapping Name="mybusiness_categories">
+      <EntityTypeMapping TypeName="MainDbModel.mybusiness_categories">
+        <MappingFragment StoreEntitySet="mybusiness_categories">
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mybusiness_images">
+      <EntityTypeMapping TypeName="MainDbModel.mybusiness_images">
+        <MappingFragment StoreEntitySet="mybusiness_images">
+          <ScalarProperty Name="hidden" ColumnName="hidden" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="folder" ColumnName="folder" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="systemusers">
+      <EntityTypeMapping TypeName="MainDbModel.systemuser">
+        <MappingFragment StoreEntitySet="systemusers">
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

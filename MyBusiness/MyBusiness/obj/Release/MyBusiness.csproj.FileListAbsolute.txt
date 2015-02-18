@@ -2,11 +2,8 @@ C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.pdb
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
-C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.SqlServer.dll
-C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\mysql.data.entity.EF6.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCrypto.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
-C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.SqlServer.xml
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.csprojResolveAssemblyReference.cache
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.pdb

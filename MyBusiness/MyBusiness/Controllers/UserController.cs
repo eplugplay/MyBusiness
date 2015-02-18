@@ -17,7 +17,6 @@ namespace MyBusiness.Controllers
     {
         //
         // GET: /User/
-
         public ActionResult Index()
         {
             return View();
@@ -58,24 +57,24 @@ namespace MyBusiness.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var db = new Models.MainDbEntitiesContainer())
-                {
-                    var crypto = new SimpleCrypto.PBKDF2();
-                    var encrpPass = crypto.Compute(user.Password);
-                    var sysUser = db.systemusers.CreateObject();
+                //using (var db = new Models.MainDbEntitiesContainer())
+                //{
+                //    var crypto = new SimpleCrypto.PBKDF2();
+                //    var encrpPass = crypto.Compute(user.Password);
+                //    var sysUser = db.systemusers.CreateObject();
 
-                    sysUser.Email = user.Email;
-                    sysUser.Password = encrpPass;
-                    sysUser.PasswordSalt = crypto.Salt;
-                    sysUser.UserID = Guid.NewGuid().ToString();
-                    db.systemusers.AddObject(sysUser);
-                    if (db.systemusers.Any(u => u.Email == user.Email))
-                    {
-                        ModelState.AddModelError("Email", "Email Already Exists");
-                        return View(user);
-                    }
-                    db.SaveChanges();
-                }
+                //    sysUser.Email = user.Email;
+                //    sysUser.Password = encrpPass;
+                //    sysUser.PasswordSalt = crypto.Salt;
+                //    sysUser.UserID = Guid.NewGuid().ToString();
+                //    db.systemusers.AddObject(sysUser);
+                //    if (db.systemusers.Any(u => u.Email == user.Email))
+                //    {
+                //        ModelState.AddModelError("Email", "Email Already Exists");
+                //        return View(user);
+                //    }
+                //    db.SaveChanges();
+                //}
             }
             return RedirectToAction("LogIn", "User");
         }
@@ -128,19 +127,24 @@ namespace MyBusiness.Controllers
                     }
                 }
             }
-
-            //using (var db = new Models.MainDbEntitiesContainer())
+            //using (var db = new Models.db_9ae46c_myblogEntities())
             //{
-            //    var user = db.systemusers.FirstOrDefault(u => u.Email == email);
-
-            //    if (user != null)
+            //    try
             //    {
-            //        if (user.Password == crypto.Compute(password, user.PasswordSalt))
+            //        var user = db.systemusers.FirstOrDefault(u => u.Email == email);
+
+            //        if (user != null)
             //        {
-            //            isValid = true;
+            //            if (user.Password == crypto.Compute(password, user.PasswordSalt))
+            //            {
+            //                isValid = true;
+            //            }
             //        }
             //    }
+            //    catch
+            //    {
 
+            //    }
             //}
             return isValid;
         }
