@@ -177,14 +177,15 @@
          var id = $("#ddlEditCategories").val();
          var formData = new FormData();
          var imagefile = document.getElementById("txtUploadFile").files[0];
+         var fileName = document.getElementById("txtUploadFile").value;
          formData.append("1", imagefile);
 
-         //var split = path.split('/')
-         //var newPath = "/" + folder + "/" + split[split.length - 1]
-         //if (ValidateImage(newPath) == true) {
-         //    LoadSecondaryMsg('Image already exist');
-         //    return false;
-         //}
+         var split = fileName.split('/')
+         var newPath = "/" + folder + "/" + split[split.length - 1]
+         if (ValidateImage(newPath) == true) {
+             LoadSecondaryMsg('Image already exist');
+             return false;
+         }
 
          if (upload == "")
          {
