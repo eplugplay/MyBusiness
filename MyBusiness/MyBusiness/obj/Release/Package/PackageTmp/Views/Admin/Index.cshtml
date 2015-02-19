@@ -11,9 +11,14 @@
 <div class ="bar"><span class="barText"><h2>Manage Images</h2></span></div>
  
     <style>
+        #ddlGender{
+            margin-left:42px;
+            width:186px;
+        }
+
         .btnNewImg{
             border: 2px solid black;
-            width:280px;
+            width:150px;
             height:25px;
             text-align:center;
         }
@@ -57,15 +62,49 @@
 
      $(document).ready(function () {
          GetCategories();
-         SelectChangedDropDown();
+         SelectChangedCategories();
      });
 
-     function SelectChangedDropDown() {
+     function SelectChangedCategories() {
          $("#ddlCategories").change(function () {
              var id = $("#ddlCategories").val();
              if (id != -1) {
+                 if ($("#ddlCategories option:selected").text().toLowerCase().indexOf("kids") >= 0)
+                 {
+                     $("#linkTab1").html("Girls");
+                     $("#linkTab2").html("Boys");
+                     $("#linkTab1").css("display", "inline");
+                     $("#linkTab2").css("display", "inline");
+                 }
+                 else if ($("#ddlCategories option:selected").text().toLowerCase().indexOf("gauchos") >= 0 || $("#ddlCategories option:selected").text().toLowerCase().indexOf("shoes") >= 0) {
+                     $("#linkTab1").html("Women");
+                     $("#linkTab2").css("display", "none");
+                 }
+                 else {
+                     $("#linkTab1").html("Women");
+                     $("#linkTab2").html("Men");
+                     $("#linkTab1").css("display", "inline");
+                     $("#linkTab2").css("display", "inline");
+                 }
                  UpdateWomen();
                  UpdateMen();
+             }
+         });
+     }
+
+     function SelectChangedEditCategories() {
+         $("#ddlEditCategories").change(function () {
+             var id = $("#ddlEditCategories").val();
+             if (id != -1) {
+                 if ($("#ddlEditCategories option:selected").text().toLowerCase().indexOf("kids") >= 0) {
+                     $("#ddlGender").empty().append(new Option('Girls', 'Girls'), new Option('Boys', 'Boys'));
+                 }
+                 else if ($("#ddlEditCategories option:selected").text().toLowerCase().indexOf("shoes") >= 0 || $("#ddlEditCategories option:selected").text().toLowerCase().indexOf("gauchos") >= 0) {
+                     $("#ddlGender").empty().append(new Option('Women', 'Women'));
+                 }
+                 else {
+                     $("#ddlGender").empty().append(new Option('Women', 'Women'), new Option('Men', 'Men'));
+                 }
              }
          });
      }
@@ -155,7 +194,7 @@
              width: "300px",
              title: "Delete Image?",
              buttons: {
-                 "Confirm": function () {
+                 "Delete": function () {
                      $.ajax({
                          type: "POST",
                          cache: false,
@@ -168,10 +207,10 @@
                              if (data == "Successful") {
                                  UpdateWomen();
                                  UpdateMen();
-                                 LoadMsg('Deleted Successfully.');
+                                 LoadSecondaryMsg('Deleted Successfully.');
                              }
                              else {
-                                 LoadMsg('Did not delete Successfully.');
+                                 LoadSecondaryMsg('Did not delete Successfully.');
                              }
                              $("#popupwindow").dialog("close");
                              return true;
@@ -185,6 +224,7 @@
          });
          $("#popupwindow").html("Do you want to delete this image?");
          $("#popupwindow").dialog("open");
+         return true;
      }
 
 
@@ -195,14 +235,18 @@
              height: "450",
              width: "500px",
              show: "fade",
-             title: "Edit Image",
+             title: "New Image",
              buttons: {
-                 OK: function () { $(this).dialog("close"); }
+                 //OK: function () { $(this).dialog("close"); }
              }
          });
-         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><input type=\"file\" name=\"UploadPDF\" id=\"txtUploadFile\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><a href=\"#\" class=\"btnSaveNew\" onclick=\"if(UploadImage()==false) return false;\">Save</a>")
-         $("#popupwindow").dialog("open");
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><input type=\"file\" name=\"UploadPDF\" id=\"txtUploadFile\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><a href=\"javascript:;\" class=\"btnSaveNew\" onclick=\"if(UploadImage()==false) return false;\">Save</a>")
          GetEditCategories();
+         $(document).ready(function () {
+             SelectChangedEditCategories();
+         });
+         $("#popupwindow").dialog("open");
+         return true;
      }
 
      function UploadImage() {
@@ -217,10 +261,18 @@
          var fileName = document.getElementById("txtUploadFile").value;
          formData.append("1", imagefile);
 
-         var split = fileName.split('/')
-         var newPath = "/" + folder + "/" + split[split.length - 1]
-         if (ValidateImage(newPath) == true) {
-             LoadSecondaryMsg('Image already exist');
+         var split = fileName.split('\\');
+         var filename = split[split.length - 1];
+         var extension = filename.split('.');
+         extension = extension[extension.length - 1];
+         if (ValidateImageDb(filename) == true) {
+             LoadSecondaryMsg('Image name already exists in database.');
+             return false;
+         }
+
+         if (ValidateImageExtension(extension) == false)
+         {
+             LoadSecondaryMsg('Please upload image files only.');
              return false;
          }
 
@@ -244,7 +296,7 @@
              show: "fade",
              title: "Upload Image?",
              buttons: {
-                 "Confirm": function () {
+                 "Upload": function () {
                      $.ajax({
                          type: "POST",
                          url: "/Admin/UploadImage?description=" + description + "&gender=" + gender + "&folder=" + folder + "&hidden=" + hidden,
@@ -303,21 +355,35 @@
          $("#popupwindow").dialog({
              autoOpen: false,
              modal: true,
-             height: "650",
+             height: "500",
              width: "500px",
              show: "fade",
              title: "Edit Image",
              buttons: {
-                 OK: function () { $(this).dialog("close"); }
+                 //OK: function () { $(this).dialog("close"); }
              }
          });
          //$('#popupwindow').css('overflow', 'hidden');
-         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><img src=\"" + path + "\" width=\"50%\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><a href=\"#\" class=\"btnUpdate\" onclick=\"UpdateImgInfo(\'" + path + "\');\">Update</a> ")
-         $("#popupwindow").dialog("open");
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><img src=\"" + path + "\" width=\"50%\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select id=\"ddlGender\"></select></span><br><br><br><br><a href=\"javascript:;\" class=\"btnUpdate\" onclick=\"UpdateImgInfo(\'" + path + "\');\">Update</a> ")
          GetEditCategories();
+         $(document).ready(function () {
+             if (folder.toLowerCase().indexOf("kids") >= 0) {
+                 $("#ddlGender").empty().append(new Option('Girls', 'Girls'), new Option('Boys', 'Boys'));
+             }
+             else if (folder == "Shoes" || folder == "Gauchos")
+             {
+                 $("#ddlGender").empty().append(new Option('Women', 'Women'));
+             }
+             else
+             {
+                 $("#ddlGender").empty().append(new Option('Women', 'Women'), new Option('Men', 'Men'));
+             }
+             $("#ddlGender").val(gender);
+         });
+         SelectChangedEditCategories();
          $("#txtImgName").val(description);
+         
          $("#ddlEditCategories").val(folder);
-         $("#ddlGender").val(gender);
          if (hidden == 0)
          {
              $("#chkHidden").attr('checked', false);
@@ -326,6 +392,8 @@
          {
              $("#chkHidden").attr('checked', true);
          }
+         $("#popupwindow").dialog("open");
+         return true;
      }
 
      
@@ -335,8 +403,8 @@
          var gender = $("#ddlGender option:selected").text();
          var hidden = $("#chkHidden").is(':checked');
          var exist = false;
-         var split = path.split('/')
-         var newPath = "/" + folder + "/" + split[split.length - 1]
+         var split = path.split('/');
+         var newPath = "/" + folder + "/" + split[split.length - 1];
          if (ValidateImage(newPath) == true) {
              exist = true;
          }
@@ -347,7 +415,7 @@
              show: "fade",
              title: "Update Image Info?",
              buttons: {
-                 "Confirm": function () {
+                 "Update": function () {
                      $.ajax({
                          type: "POST",
                          cache: false,
@@ -377,6 +445,7 @@
          });
          $("#popupwindow2").html("Do you want to update this image's info?");
          $("#popupwindow2").dialog("open");
+         return true;
      }
 
      function ValidateImage(path)
@@ -398,12 +467,37 @@
          return exist;
      }
 
+     function ValidateImageDb(filename) {
+         var exist = false;
+         $.ajax({
+             type: "POST",
+             url: "/Admin/ValidateImageDb",
+             dataType: "json",
+             data: { filename: filename },
+             async: false,
+             success: function (data) {
+                 if (data == "Exist") {
+                     exist = true;
+                 }
+             }
+         });
+         return exist;
+     }
+
+     function ValidateImageExtension(extension) {
+         if (extension.toLowerCase().indexOf("jpg") >= 0 || extension.toLowerCase().indexOf("jpeg") >= 0 || extension.toLowerCase().indexOf("png") >= 0 || extension.toLowerCase().indexOf("gif") >= 0)
+         {
+             return true;
+         }
+         return false;
+     }
+
      function UpdateView(tab, path, desc) {
          if (tab == "tabs-1") {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><a href=\"#\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"#\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="javascript:;" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><a href=\"javascript:;\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"javascript:;\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="javascript:;" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
          else {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href=\"#\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"#\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="javascript:;" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href=\"javascript:;\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"javascript:;\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="javascript:;" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
      }
 
@@ -431,13 +525,14 @@
 <body>
 <br />
 <div id="tabs">
+<label>Load Section:</label><br />
 <select id="ddlCategories"></select>
-<a href="#" class="btnNewImg" type="submit" onclick="NewImage()">Upload Image</a>
+    <a href="javascript:;" class="btnNewImg" onclick="NewImage()">Upload New Image</a>
 <br />
 <br />
 <ul>
-<li id="tab1"><a href="#tabs-1">Women</a></li>
-<li id="tab2"><a href="#tabs-2">Men</a></li>
+<li id="tab1"><a id="linkTab1" href="#tabs-1">Women</a></li>
+<li id="tab2"><a id="linkTab2" href="#tabs-2">Men</a></li>
 </ul>
 <div id="tabs-1">
 @*@Html.Partial("_AllImgWomen")*@

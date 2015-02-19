@@ -1,24 +1,37 @@
 ﻿<table>
- @{int count2 = 0;}
-   @foreach (var image in ViewData.Model)
-   {
-       if (image.Gender == "Men" || image.Gender == "Boys")
-       {
-           if (count2 % 8 == 0)
-           {
-             <tr></tr>    
-           }
-           <td>
-              <div class="imageItem">
-   <span class="image">
-        <!--<a href="CapsImages/@image.Path">-->
-        <img class="imgSingle" style="cursor:pointer;" src="/@image.Folder/@image.Path" onclick="UpdateView('tabs-2', '/@image.Folder/@image.Path', '@image.Description');" height="100" width="100" /><!--</a>-->
-        <br />
-        <span class="description">@image.Description</span>
-   </span>
-   </div>
-   </td>
-           count2++;
-       }
-   }
+    @{int count = 0;}
+    @foreach (var image in ViewData.Model)
+    {
+        if (image.Gender == "Men" || image.Gender == "Boys")
+        {
+            if (count % 8 == 0)
+            {
+                <tr></tr>
+            }
+            <td>
+                <div class="imageItem">
+                    <span class="image">
+                        @if (ViewBag.isAdmin == true)
+                        {
+                            if (image.Hidden == 0)
+                            {
+                                <img class="imgSingle" style="cursor:pointer;border:2px solid blue" src="/@image.Folder/@image.Path" onclick="UpdateView('tabs-2', '/@image.Folder/@image.Path', '@image.Description');" height="100" width="100" />
+                            }
+                            else
+                            {
+                                <img class="imgSingle" style="cursor:pointer;border:2px solid red" src="/@image.Folder/@image.Path" onclick="UpdateView('tabs-2', '/@image.Folder/@image.Path', '@image.Description');" height="100" width="100" />
+                            }
+                        }
+                        else
+                        {
+                            <img class="imgSingle" style="cursor:pointer;" src="/@image.Folder/@image.Path" onclick="UpdateView('tabs-2', '/@image.Folder/@image.Path', '@image.Description');" height="100" width="100" />
+                        }
+                        <br />
+                        <span class="description">@image.Description</span>
+                    </span>
+                </div>
+            </td>
+                        count++;
+        }
+    }
 </table>

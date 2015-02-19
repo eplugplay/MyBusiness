@@ -33,13 +33,15 @@ namespace MyBusiness.Controllers
         [HttpPost]
         public PartialViewResult ReloadImgWomen(string Folder)
         {
-            return PartialView("_AllImgWomen", new ImageModel(Folder, false));
+            ViewBag.isAdmin = true;
+            return PartialView("_AllImgWomen", new ImageModel(Folder, false, "true"));
         }
 
         [HttpPost]
         public PartialViewResult ReloadImgMen(string Folder)
         {
-            return PartialView("_AllImgMen", new ImageModel(Folder, false));
+            ViewBag.isAdmin = true;
+            return PartialView("_AllImgMen", new ImageModel(Folder, false, "true"));
         }
 
         [HttpPost]
@@ -175,7 +177,35 @@ namespace MyBusiness.Controllers
 
             }
 
-            return Json("OK");
+            return Json("None");
+        }
+
+        [HttpPost]
+        public JsonResult ValidateImageDb(string fileName)
+        {
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"SELECT count(*) as count FROM mybusiness_images WHERE filename=@filename";
+                        cmd.Parameters.AddWithValue("filename", fileName);
+                        int cnt = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (cnt != 0)
+                        {
+                            return Json("Exist");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return Json("None");
         }
 
         [HttpPost]

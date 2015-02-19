@@ -9,17 +9,19 @@ namespace MyBusiness.Models
 {
     public class Image
     {
-        public Image(string folder, string path, string desc, string gender)
+        public Image(string folder, string path, string desc, string gender, int hidden)
         {
             Folder = folder;
             Path = path;
             Description = desc;
             Gender = gender;
+            Hidden = hidden;
         }
         public string Folder { get; set; }
         public string Path { get; set; }
         public string Description { get; set; }
         public string Gender { get; set; }
+        public int Hidden { get; set; }
     }
 
     public class ImageCategory
