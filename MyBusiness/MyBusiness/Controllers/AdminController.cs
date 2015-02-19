@@ -179,7 +179,7 @@ namespace MyBusiness.Controllers
         }
 
         [HttpPost]
-        public JsonResult UpdateImgInfo(string path, string description, string gender, string folder, bool hidden)
+        public JsonResult UpdateImgInfo(string path, string description, string gender, string folder, bool hidden, bool imgExist)
         {
             string[] split = path.Split('/');
             int Hidden = hidden ? 1 : 0;
@@ -200,13 +200,16 @@ namespace MyBusiness.Controllers
                     }
                 }
 
-                // delete image from old folder
-                FileInfo fileInfo = new FileInfo(Server.MapPath(path));
-                if (fileInfo.Exists)
+                if (imgExist == false)
                 {
-                    // copy image to new folder
-                    System.IO.File.Copy(Server.MapPath(path), Server.MapPath("\\" + folder + "\\" + split[2]));
-                    fileInfo.Delete();
+                    // delete image from old folder
+                    FileInfo fileInfo = new FileInfo(Server.MapPath(path));
+                    if (fileInfo.Exists)
+                    {
+                        // copy image to new folder
+                        System.IO.File.Copy(Server.MapPath(path), Server.MapPath("\\" + folder + "\\" + split[2]));
+                        fileInfo.Delete();
+                    }
                 }
             }
             catch

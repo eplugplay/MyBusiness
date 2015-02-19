@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="MyBusinessCnn-Web.config Connection String" description="MyBusinessCnn Connection String used in web.config by the application to access the database." defaultValue="Server=MYSQL5005.Smarterasp.net;Database=db_9ae46c_myblog;Uid=9ae46c_myblog;Pwd=kings2014;Persist Security Info=True;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyBusinessCnn']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Steve\ Yi\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MyBusinessCnn']/@connectionString" />
   </parameter>
   <parameter name="db_9ae46c_myblogEntities-Web.config Connection String" description="db_9ae46c_myblogEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.entDbMain.csdl|res://*/Models.entDbMain.ssdl|res://*/Models.entDbMain.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=MYSQL5005.Smarterasp.net;database=db_9ae46c_myblog;User Id=9ae46c_myblog;password=kings2014;Persist Security Info=True&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db_9ae46c_myblogEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Steve\ Yi\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db_9ae46c_myblogEntities']/@connectionString" />
   </parameter>
   <parameter name="ftp-Web.config Connection String" description="ftp Connection String used in web.config by the application to access the database." defaultValue="Wutsup54321@" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\stevey\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ftp']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Steve\ Yi\\Documents\\GitHub\\MyBusiness\\MyBusiness\\MyBusiness\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ftp']/@connectionString" />
   </parameter>
 </parameters>

@@ -11,11 +11,46 @@
 <div class ="bar"><span class="barText"><h2>Manage Images</h2></span></div>
  
     <style>
-        #btnNewImg{
-            width:120px;
+        .btnNewImg{
+            border: 2px solid black;
+            width:280px;
+            height:25px;
+            text-align:center;
+        }
+
+        .btnDelete{
+            border: 2px solid black;
+            float:right;
+            width:80px;
+            height:25px;
+            text-align:center;
+        }
+
+        .btnEdit{
+            border: 2px solid black;
+            float:right;
+            margin-right:5px;
+            width:80px;
+            height:25px;
+            text-align:center;
+        }
+
+        .btnSaveNew{
+            border: 2px solid black;
+            float:right;
+            margin-right:3px;
+            width:100px;
             height:25px;
         }
 
+        .btnUpdate{
+            border: 2px solid black;
+            float:right;
+            margin-right:3px;
+            width:80px;
+            height:25px;
+            text-align:center;
+        }
     </style>
 
  <script type="text/javascript">
@@ -47,7 +82,7 @@
              async: false,
              success: function (data) {
                  var optionhtml = '<option value="' +
-        -1 + '">----select date</option>';
+        -1 + '">----select section</option>';
                  $("#ddlCategories").append(optionhtml);
                  $(data).each(function (i) {
                      optionhtml = '<option value="' +
@@ -71,7 +106,7 @@
              async: false,
              success: function (data) {
                  var optionhtml = '<option value="' +
-        -1 + '">----select date</option>';
+        -1 + '">----select section</option>';
                  $("#ddlEditCategories").append(optionhtml);
                  $(data).each(function (i) {
                      optionhtml = '<option value="' +
@@ -116,6 +151,8 @@
              autoOpen: false,
              modal: true,
              show: "fade",
+             height: "150",
+             width: "300px",
              title: "Delete Image?",
              buttons: {
                  "Confirm": function () {
@@ -155,7 +192,7 @@
          $("#popupwindow").dialog({
              autoOpen: false,
              modal: true,
-             height: "550",
+             height: "450",
              width: "500px",
              show: "fade",
              title: "Edit Image",
@@ -163,7 +200,7 @@
                  OK: function () { $(this).dialog("close"); }
              }
          });
-         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><input type=\"file\" name=\"UploadPDF\" id=\"txtUploadFile\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><input style=\"float:right;margin-right:3px;width:100px;height:25px\" type=\"submit\" value=\"Save\" onclick=\"if(UploadImage()==false) return false;\"/> ")
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><input type=\"file\" name=\"UploadPDF\" id=\"txtUploadFile\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><a href=\"#\" class=\"btnSaveNew\" onclick=\"if(UploadImage()==false) return false;\">Save</a>")
          $("#popupwindow").dialog("open");
          GetEditCategories();
      }
@@ -266,7 +303,7 @@
          $("#popupwindow").dialog({
              autoOpen: false,
              modal: true,
-             height: "550",
+             height: "650",
              width: "500px",
              show: "fade",
              title: "Edit Image",
@@ -275,7 +312,7 @@
              }
          });
          //$('#popupwindow').css('overflow', 'hidden');
-         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><img src=\"" + path + "\" width=\"50%\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><input style=\"float:right;margin-right:3px;width:100px;height:25px\" type=\"submit\" value=\"Update\" onclick=\"UpdateImgInfo(\'" + path + "\');\"/> ")
+         $("#popupwindow").html("<span style=\"float:right\">Hide<input type=\"checkbox\" id=\"chkHidden\"></span><br\><br\><div style=\"text-align:center\"><img src=\"" + path + "\" width=\"50%\" /></div><br><br><div style=\"text-align:center\">Category:<select style=\"margin-left:30px\" id=\"ddlEditCategories\"></select><br\><br\>Description:<input style=\"margin-left:12px\" id=\"txtImgName\" type=\"textbox\" ><br\><br\>Gender:<select style=\"margin-left:42px;width:186px\" id=\"ddlGender\"><option>Women</option><option>Men</option><option>Girls</option><option>Boys</option></select></span><br><br><br><br><a href=\"#\" class=\"btnUpdate\" onclick=\"UpdateImgInfo(\'" + path + "\');\">Update</a> ")
          $("#popupwindow").dialog("open");
          GetEditCategories();
          $("#txtImgName").val(description);
@@ -297,12 +334,11 @@
          var description = $("#txtImgName").val();
          var gender = $("#ddlGender option:selected").text();
          var hidden = $("#chkHidden").is(':checked');
-
+         var exist = false;
          var split = path.split('/')
          var newPath = "/" + folder + "/" + split[split.length - 1]
          if (ValidateImage(newPath) == true) {
-             LoadSecondaryMsg('Image already exist');
-             return false;
+             exist = true;
          }
 
          $("#popupwindow2").dialog({
@@ -318,7 +354,7 @@
                          async: false,
                          url: "/Admin/UpdateImgInfo",
                          dataType: "json",
-                         data: { path: path, description: description, gender: gender, folder: folder, hidden: hidden },
+                         data: { path: path, description: description, gender: gender, folder: folder, hidden: hidden, imgExist: exist },
                          async: false,
                          success: function (data) {
                              if (data == "Successful") {
@@ -364,10 +400,10 @@
 
      function UpdateView(tab, path, desc) {
          if (tab == "tabs-1") {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><input style=\"float:right;width:80px;height:25px\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><input style=\"float:right;margin-right:3px;width:80px;height:25px\" type=\"submit\" value=\"Edit\" onclick=\"EditImage(\'' + path + '\');\"/><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateWomen(); ">Go back</a><br> <br><img id=\"imgSingle\" src="' + path + '" width=100% /> <br> <br><a href=\"#\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"#\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="#" onclick="UpdateWomen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
          else {
-             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><input style=\"float:right\" type=\"submit\" value=\"Delete\" onclick=\"DeleteImage(\'' + path + '\');\"/><input style=\"float:right;margin-right:3px;\" type=\"submit\" value=\"Edit\" onclick=\"EditImage(\'' + path + '\');\"/><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
+             $('#' + tab).html('<div class=\"LoadedImg\"> <a href="#" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href=\"#\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"#\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="#" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
      }
 
@@ -396,7 +432,7 @@
 <br />
 <div id="tabs">
 <select id="ddlCategories"></select>
-<input id="btnNewImg" type="submit" value="Upload Image" onclick="NewImage()" />
+<a href="#" class="btnNewImg" type="submit" onclick="NewImage()">Upload Image</a>
 <br />
 <br />
 <ul>

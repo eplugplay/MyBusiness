@@ -4,12 +4,6 @@ c:\users\stevey\documents\visual studio 2010\Projects\MyBusiness\MyBusiness\bin\
 c:\users\stevey\documents\visual studio 2010\Projects\MyBusiness\MyBusiness\bin\EntityFramework.xml
 c:\users\stevey\documents\visual studio 2010\Projects\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
 c:\users\stevey\documents\visual studio 2010\Projects\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.pdb
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
-C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll.config
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.pdb
@@ -18,3 +12,11 @@ C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCryp
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll.config
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.pdb
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCrypto.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb

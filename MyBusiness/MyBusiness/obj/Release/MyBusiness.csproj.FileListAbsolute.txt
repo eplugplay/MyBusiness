@@ -7,3 +7,12 @@ C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFram
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.csprojResolveAssemblyReference.cache
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.pdb
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll.config
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.pdb
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCrypto.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.csprojResolveAssemblyReference.cache
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.dll
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Release\MyBusiness.pdb
