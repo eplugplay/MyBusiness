@@ -291,5 +291,34 @@ namespace MyBusiness.Controllers
             }
             return serializer.Serialize(listInfo);
         }
+
+        /*Pages*/
+        #region Pages
+        [HttpPost]
+        [ValidateInput(false)]
+        public JsonResult UpdatePage(string ckeditor, string pagename)
+        {
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"UPDATE mybusiness_page SET pagedata=@pagedata WHERE pagename=@pagename";
+                        cmd.Parameters.AddWithValue("pagename", pagename);
+                        cmd.Parameters.AddWithValue("pagedata", ckeditor);
+                        cmd.ExecuteNonQuery();
+                    }
+                };
+
+            }
+            catch
+            {
+                return Json("Failed");
+            }
+            return Json("Successful");
+        }
+        #endregion
     }
 }

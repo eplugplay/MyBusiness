@@ -259,13 +259,30 @@ ul#menu li.selected a
 
 #tabs
 {
-    height: 660px;
+    height: 600px;
     overflow: auto;
     font-size: 10pt;  
     border: none;
     z-index:inherit;
 }
 
+#mainTabs
+{
+    /*height: 600px;*/
+    overflow: auto;
+    font-size: 12pt;  
+    border: none;
+    z-index:inherit;
+}
+
+#articleTabs
+{
+    /*height: 200px;*/
+    overflow: auto;
+    font-size: 10pt;  
+    border: none;
+    z-index:inherit;
+}
 
 /*
 #.ui-tabs{
@@ -447,10 +464,18 @@ footer
 
     #tabs
     {
-        height: 400px;
+        height: 360px;
         overflow: auto;
         font-size: 10pt;
     }
+
+    /*#mainTabs
+    {
+        height: 360px;
+        overflow: auto;
+        font-size: 10pt;
+    }*/
+
     /* header
         ----------------------------------------------------------*/
     /*top tab*/

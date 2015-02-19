@@ -7,8 +7,8 @@
 
 <html>
 <head>
-<br />
-<div class ="bar"><span class="barText"><h2>Manage Images</h2></span></div>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor.js")"></script>
+<div class ="bar"><span class="barText"><h2>Admin Options</h2></span></div>
  
     <style>
         #ddlGender{
@@ -56,11 +56,37 @@
             height:25px;
             text-align:center;
         }
+
+        .btnPageSave{
+            float:right;
+        }
     </style>
 
  <script type="text/javascript">
 
      $(document).ready(function () {
+         CKEDITOR.replace('editor1', {
+             height: '380px',
+             width: '100%',
+             resize_enabled: false,
+             forcePasteAsPlainText: true
+             //filebrowserImageUploadUrl: GetImgUploadPath(),
+             //filebrowserBrowseUrl: GetImgBrowsePath(),
+             //filebrowserWindowWidth: 800,
+             //filebrowserWindowHeight: 600
+         });
+         CKEDITOR.replace('editor2', {
+             height: '380px',
+             width: '100%',
+             resize_enabled: false,
+             forcePasteAsPlainText: true
+             //filebrowserImageUploadUrl: GetImgUploadPath(),
+             //filebrowserBrowseUrl: GetImgBrowsePath(),
+             //filebrowserWindowWidth: 800,
+             //filebrowserWindowHeight: 600
+         });
+         CKEDITOR.instances.editor1.setData("");
+         CKEDITOR.instances.editor2.setData("");
          GetCategories();
          SelectChangedCategories();
      });
@@ -510,8 +536,29 @@
              UpdateWomen();
          });
          $("#tabs").tabs({
+ 
+         });
+
+         $("#mainTabs").tabs({
 
          });
+         $("#Maintab1").on("click", function () {
+
+         });
+         $("#Maintab2").on("click", function () {
+ 
+         });
+
+         $("#articleTabs").tabs({
+
+         });
+         $("#homeTab1").on("click", function () {
+
+         });
+         $("#aboutUsTab1").on("click", function () {
+
+         });
+
          //         $("#tabs").tabs().css({
          //             'height': '660px',
          //             'overflow': 'auto',
@@ -519,27 +566,55 @@
          //         });
      });
 
-
 </script>
 </head>
 <body>
 <br />
-<div id="tabs">
-<label>Load Section:</label><br />
-<select id="ddlCategories"></select>
-    <a href="javascript:;" class="btnNewImg" onclick="NewImage()">Upload New Image</a>
-<br />
-<br />
-<ul>
-<li id="tab1"><a id="linkTab1" href="#tabs-1">Women</a></li>
-<li id="tab2"><a id="linkTab2" href="#tabs-2">Men</a></li>
-</ul>
-<div id="tabs-1">
-@*@Html.Partial("_AllImgWomen")*@
-</div>
-<div id="tabs-2">
- @*@Html.Partial("_AllImgMen")*@
-</div>
-</div>
+    <div id="mainTabs">
+        <ul>
+            <li id="Maintab1"><a id="mainLinkTab1" href="#mainTabs-1">Images</a></li>
+            <li id="Maintab2"><a id="mainLinkTab2" href="#mainTabs-2">Edit Pages</a></li>
+        </ul>
+        <div id="mainTabs-1">
+            <div id="tabs">
+                <br />
+                <label>Load Section:</label><br />
+                <select id="ddlCategories"></select>
+                <a href="javascript:;" class="btnNewImg" onclick="NewImage()">Upload New Image</a>
+                <br />
+                <br />
+                <ul>
+                    <li id="tab1"><a id="linkTab1" href="#tabs-1">Women</a></li>
+                    <li id="tab2"><a id="linkTab2" href="#tabs-2">Men</a></li>
+                </ul>
+                <div id="tabs-1">
+                    @*@Html.Partial("_AllImgWomen")*@
+                </div>
+                <div id="tabs-2">
+                    @*@Html.Partial("_AllImgMen")*@
+                </div>
+            </div>
+        </div>
+        <div id="mainTabs-2">
+            <div id="articleTabs">
+                <ul>
+                    <li id="homeTab1"><a id="linkTab1" href="#homeTab">Home</a></li>
+                    <li id="aboutUsTab1"><a id="linkTab2" href="#aboutUsTab">About Us</a></li>
+                </ul>
+                <div id="homeTab">
+                    <div class="editor-field">
+                        @Html.TextArea("editor1", new { @Id = "editor1" })
+                    </div>
+                    <a href="javascript:;" class="btnPageSave" onclick="SavePage('Home')">Save</a>
+                </div>
+                <div id="aboutUsTab">
+                    <div class="editor-field">
+                        @Html.TextArea("editor2", new { @Id = "editor2" })
+                    </div>
+                    <a href="javascript:;" class="btnPageSave" onclick="SavePage('AboutUs')">Save</a>
+                </div>
+            </div>
+        </div>
+     </div>
 </body>
 </html>
