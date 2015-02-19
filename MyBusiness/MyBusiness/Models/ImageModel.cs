@@ -18,7 +18,7 @@ namespace MyBusiness.Models
             DataTable dt = new DataTable();
             if (folder == "HomeScrollImages")
             {
-                dt = uti.GetRandomInfo(folder);
+                dt = uti.GetRandomInfo(folder, hidden);
                 var images = from image in dt.AsEnumerable() select new Image(image.Field<string>("folder"), image.Field<string>("filename"), image.Field<string>("description"), image.Field<string>("gender"));
                 this.AddRange(images.ToList<Image>());
             }

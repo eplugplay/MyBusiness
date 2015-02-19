@@ -33,13 +33,13 @@ namespace MyBusiness.Controllers
         [HttpPost]
         public PartialViewResult ReloadImgWomen(string Folder)
         {
-            return PartialView("_AllImgWomen", new ImageModel(Folder, true));
+            return PartialView("_AllImgWomen", new ImageModel(Folder, false));
         }
 
         [HttpPost]
         public PartialViewResult ReloadImgMen(string Folder)
         {
-            return PartialView("_AllImgMen", new ImageModel(Folder, true));
+            return PartialView("_AllImgMen", new ImageModel(Folder, false));
         }
 
         [HttpPost]

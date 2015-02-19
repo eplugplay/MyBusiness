@@ -19,7 +19,7 @@ namespace MyBusiness.Models
                 cnn.Open();
                 using (var cmd = cnn.CreateCommand())
                 {
-                    if (hidden == false)
+                    if (hidden == true)
                     {
                         cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0";
                     }
@@ -35,7 +35,7 @@ namespace MyBusiness.Models
             }
         }
 
-        public static DataTable GetRandomInfo(string folder)
+        public static DataTable GetRandomInfo(string folder, bool hidden)
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
@@ -43,7 +43,14 @@ namespace MyBusiness.Models
                 cnn.Open();
                 using (var cmd = cnn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0 ORDER BY RAND()";
+                    if (hidden == true)
+                    {
+                        cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder AND hidden=0 ORDER BY RAND()";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder ORDER BY RAND()";
+                    }
                     cmd.Parameters.AddWithValue("folder", folder);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.Fill(dt);
