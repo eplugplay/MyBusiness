@@ -18,5 +18,6 @@ C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusine
 C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
 C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCrypto.dll
 C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
+C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.csprojResolveAssemblyReference.cache
 C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
 C:\Users\Steve Yi\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb

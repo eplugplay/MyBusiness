@@ -108,12 +108,12 @@ namespace MyBusiness.Controllers
         }
 
         [HttpPost]
-        public JsonResult UploadImage(string description, string gender, string folder, string hidden)
+        public JsonResult UploadImage(string description, string gender, string folder, bool hidden)
         {
             string fileName = "";
             int length = 0;
             string path = "";
-            
+            int Hidden = hidden ? 1 : 0;
             try
             {
                 foreach (string file in Request.Files)
@@ -145,7 +145,7 @@ namespace MyBusiness.Controllers
                         cmd.Parameters.AddWithValue("gender", gender);
                         cmd.Parameters.AddWithValue("folder", folder);
                         cmd.Parameters.AddWithValue("length", length);
-                        cmd.Parameters.AddWithValue("hidden", hidden);
+                        cmd.Parameters.AddWithValue("hidden", Hidden);
                         cmd.ExecuteNonQuery();
                     }
                 }
