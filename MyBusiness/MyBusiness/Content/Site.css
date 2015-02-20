@@ -38,6 +38,7 @@ body
     margin-left: auto;
     margin-right: auto;
     height: 760px; /*border-top-left-radius:15px;     border-top-right-radius:15px;*/
+    overflow:auto;
 }
 
 /*image sizes*/
@@ -257,6 +258,23 @@ ul#menu li.selected a
     border: none;
 }
 
+#mainTabs
+{
+    /*height: 600px;*/
+    overflow: auto;
+    font-size: 12pt;  
+    border: none;
+    z-index:inherit;
+}
+
+#Maintab1{
+    font-size: 12pt; 
+}
+
+#Maintab2{
+    font-size: 12pt; 
+}
+
 #tabs
 {
     height: 600px;
@@ -266,13 +284,12 @@ ul#menu li.selected a
     z-index:inherit;
 }
 
-#mainTabs
-{
-    /*height: 600px;*/
-    overflow: auto;
-    font-size: 12pt;  
-    border: none;
-    z-index:inherit;
+#tab1{
+    font-size: 10pt;
+}
+
+#tab2{
+    font-size: 10pt;
 }
 
 #articleTabs
@@ -383,12 +400,12 @@ footer
 
 #slideshow
 {
-    margin: 50px auto;
+    margin: 20px auto;
     position: relative; 
     /*width: 240px;             
     height: 240px;*/
-    width: 340px;
-    height: 340px;
+    width: 240px;
+    height: 240px;
     padding: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -462,19 +479,57 @@ footer
     
     /*javascript men/women section*/
 
-    #tabs
-    {
-        height: 360px;
-        overflow: auto;
-        font-size: 10pt;
-    }
+#mainTabs
+{
+    /*height: 600px;*/
+    overflow: auto;
+    font-size: 8pt;  
+    border: none;
+    z-index:inherit;
+}
 
-    /*#mainTabs
-    {
-        height: 360px;
-        overflow: auto;
-        font-size: 10pt;
-    }*/
+#Maintab1{
+    font-size: 8pt; 
+}
+
+#Maintab2{
+    font-size: 8pt; 
+}
+
+#tabs
+{
+    height: 360px;
+    overflow: auto;
+    font-size: 7pt;  
+    border: none;
+    z-index:inherit;
+}
+
+#tab1{
+    font-size: 7pt;
+}
+
+#tab2{
+    font-size: 7pt;
+}
+
+#articleTabs
+{
+    height: 400px;
+    overflow: auto;
+    font-size: 6pt;  
+    border: none;
+    z-index:inherit;
+}
+
+/*#editor1{
+    height:150px;
+    width: 200px;
+}
+#editor2{
+        height:150px;
+    width: 200px;
+}*/
 
     /* header
         ----------------------------------------------------------*/
@@ -679,9 +734,10 @@ footer
         padding-left: 4px;
         padding-right: 4px;
         width: 660px;
-        height:500px;
+        height:600px;
         background-color: #fff;
         padding-bottom: 0px; /*border-left: 2px solid #FFF;     border-right: 2px solid #FFF;     border-top: 2px solid #FFF;*/ /*border-top-left-radius:15px;     border-top-right-radius:5px;*/
+        overflow:auto;
     }
 
     #container

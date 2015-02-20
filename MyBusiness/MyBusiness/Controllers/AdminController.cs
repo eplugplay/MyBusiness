@@ -319,6 +319,43 @@ namespace MyBusiness.Controllers
             }
             return Json("Successful");
         }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public string LoadPages(string pagename)
+        {
+            DataTable dt = new DataTable();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Page> lstPages = new List<Page>();
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"Select pagedata FROM mybusiness_page WHERE pagename=@pagename";
+                        cmd.Parameters.AddWithValue("pagename", pagename);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i ++)
+                    {
+                        Page obj = new Page();
+                        obj.PageData = dt.Rows[i]["pagedata"].ToString();
+                        lstPages.Insert(i, obj);
+                    }
+                }
+            }
+            catch
+            {
+              
+            }
+            return serializer.Serialize(lstPages);
+        }
         #endregion
     }
 }

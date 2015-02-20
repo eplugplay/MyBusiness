@@ -7,10 +7,11 @@
 
 <html>
 <head>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor.js")"></script>
+    
 <div class ="bar"><span class="barText"><h2>Admin Options</h2></span></div>
  
     <style>
+
         #ddlGender{
             margin-left:42px;
             width:186px;
@@ -69,26 +70,66 @@
              height: '380px',
              width: '100%',
              resize_enabled: false,
-             forcePasteAsPlainText: true
-             //filebrowserImageUploadUrl: GetImgUploadPath(),
-             //filebrowserBrowseUrl: GetImgBrowsePath(),
-             //filebrowserWindowWidth: 800,
-             //filebrowserWindowHeight: 600
+             forcePasteAsPlainText: true,
+             filebrowserImageUploadUrl: GetImgUploadPath(),
+             filebrowserBrowseUrl: GetImgBrowsePath(),
+             filebrowserWindowWidth: 2000,
+             filebrowserWindowHeight: 2000
          });
          CKEDITOR.replace('editor2', {
              height: '380px',
              width: '100%',
              resize_enabled: false,
-             forcePasteAsPlainText: true
-             //filebrowserImageUploadUrl: GetImgUploadPath(),
-             //filebrowserBrowseUrl: GetImgBrowsePath(),
-             //filebrowserWindowWidth: 800,
-             //filebrowserWindowHeight: 600
+             forcePasteAsPlainText: true,
+             filebrowserImageUploadUrl: GetImgUploadPath(),
+             filebrowserBrowseUrl: GetImgBrowsePath(),
+             filebrowserWindowWidth: 2000,
+             filebrowserWindowHeight: 2000
          });
+         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+         }
          CKEDITOR.instances.editor1.setData("");
          CKEDITOR.instances.editor2.setData("");
          GetCategories();
          SelectChangedCategories();
+
+         $("#tab1").on("click", function () {
+             UpdateMen();
+         });
+         $("#tab2").on("click", function () {
+             UpdateWomen();
+         });
+         $("#tabs").tabs({
+
+         });
+
+         $("#mainTabs").tabs({
+
+         });
+         $("#Maintab1").on("click", function () {
+
+         });
+         $("#Maintab2").on("click", function () {
+             LoadPages("Home");
+             LoadPages("AboutUs");
+         });
+
+         $("#articleTabs").tabs({
+
+         });
+         $("#homeTab1").on("click", function () {
+             LoadPages("Home");
+         });
+         $("#aboutUsTab1").on("click", function () {
+             LoadPages("AboutUs");
+         });
+
+         //         $("#tabs").tabs().css({
+         //             'height': '660px',
+         //             'overflow': 'auto',
+         //             'font-size': '10pt'
+         //         });
      });
 
      function SelectChangedCategories() {
@@ -381,7 +422,8 @@
          $("#popupwindow").dialog({
              autoOpen: false,
              modal: true,
-             height: "500",
+             maxHeight: "700",
+             minHeight: "500",
              width: "500px",
              show: "fade",
              title: "Edit Image",
@@ -526,45 +568,6 @@
              $('#' + tab).html('<div class=\"LoadedImg\"> <a href="javascript:;" onclick="UpdateMen(); ">Go back</a><br> <br><img src="' + path + '" width=100% /> <br> <br><a href=\"javascript:;\" class=\"btnDelete\" onclick=\"DeleteImage(\'' + path + '\');\">Delete</a><a href=\"javascript:;\" class=\"btnEdit\" onclick=\"EditImage(\'' + path + '\');\">Edit</a><a href="javascript:;" onclick="UpdateMen(); ">Go back</a> </div> <div class=\"LoadedImgDesc\">' + desc + '</div> ');
          }
      }
-
-     $(function () {
-
-         $("#tab1").on("click", function () {
-             UpdateMen();
-         });
-         $("#tab2").on("click", function () {
-             UpdateWomen();
-         });
-         $("#tabs").tabs({
- 
-         });
-
-         $("#mainTabs").tabs({
-
-         });
-         $("#Maintab1").on("click", function () {
-
-         });
-         $("#Maintab2").on("click", function () {
- 
-         });
-
-         $("#articleTabs").tabs({
-
-         });
-         $("#homeTab1").on("click", function () {
-
-         });
-         $("#aboutUsTab1").on("click", function () {
-
-         });
-
-         //         $("#tabs").tabs().css({
-         //             'height': '660px',
-         //             'overflow': 'auto',
-         //             'font-size': '10pt'
-         //         });
-     });
 
 </script>
 </head>

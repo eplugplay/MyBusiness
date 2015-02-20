@@ -11,7 +11,7 @@ namespace MyBusiness.Models
 {
     public static class uti
     {
-        public static DataTable GetInfo(string folder, bool hidden)
+        public static DataTable GetImagesInfo(string folder, bool hidden)
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
@@ -35,7 +35,7 @@ namespace MyBusiness.Models
             }
         }
 
-        public static DataTable GetRandomInfo(string folder, bool hidden)
+        public static DataTable GetRandomImagesInfo(string folder, bool hidden)
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
@@ -52,6 +52,23 @@ namespace MyBusiness.Models
                         cmd.CommandText = "SELECT * FROM mybusiness_images WHERE folder=@folder ORDER BY RAND()";
                     }
                     cmd.Parameters.AddWithValue("folder", folder);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+        public static DataTable GetPageData(string pagename)
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
+            {
+                cnn.Open();
+                using (var cmd = cnn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT pagedata FROM mybusiness_page WHERE pagename=@pagename";
+                    cmd.Parameters.AddWithValue("pagename", pagename);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.Fill(dt);
                     return dt;

@@ -1,0 +1,7 @@
+﻿@using MyBusiness.Models
+
+ @foreach (var data in ViewBag.Page)
+ {
+     @Html.Raw(data.PageData);
+ }
+

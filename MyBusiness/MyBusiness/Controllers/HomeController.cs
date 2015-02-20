@@ -19,6 +19,7 @@ namespace MyBusiness.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Page = new PageModel("Home");
             return View(new ImageModel("HomeScrollImages", true));
         }
     }

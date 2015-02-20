@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<script type="text/javascript" src="@Url.Content("~/Scripts/SlideShow.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SlideShow.js")"></script>
     <title>Home</title>
 </head>
 <body>
@@ -17,20 +17,17 @@
         <div class="bar">
             <span class="barText">
                 <h2>
-                    Welcome!</h2>
+                    Welcome!
+                </h2>
             </span>
         </div>
         <br />
         <br />
         @if (ViewData.Model.Count > 0)
         {
-         @Html.Partial("_HomeImageScroll")
+            @Html.Partial("_HomeImageScroll")
         }
-        <div class="WelcomeMsg">
-            Coming Soon!
-            <br />
-            <br />
-        </div>
+        @Html.Partial("_Page")
     </div>
 </body>
 </html>

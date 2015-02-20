@@ -14,8 +14,8 @@ function SavePage(tabName)
         autoOpen: false,
         modal: true,
         show: "fade",
-        height: "300",
-        width: "500px",
+        height: "150",
+        width: "300px",
         title: "Update Page?",
         buttons: {
             "Update": function () {
@@ -46,5 +46,28 @@ function SavePage(tabName)
     });
     $("#popupwindow").html("Do you want to update this page?");
     $("#popupwindow").dialog("open");
+    return true;
+}
+
+function LoadPages(pagename) {
+    $.ajax({
+        type: "POST",
+        cache: false,
+        async: false,
+        url: "/Admin/LoadPages",
+        dataType: "json",
+        data: { pagename: pagename },
+        async: false,
+        success: function (data) {
+            if (pagename == "Home") {
+                CKEDITOR.instances.editor1.setData(data[0].PageData);
+            }
+            else
+            {
+                CKEDITOR.instances.editor2.setData(data[0].PageData);
+            }
+            return true;
+        }
+    });
     return true;
 }

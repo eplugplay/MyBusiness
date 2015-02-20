@@ -57,6 +57,7 @@
       <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -92,6 +93,7 @@
     <Compile Include="Controllers\EmCapsController.cs" />
     <Compile Include="Controllers\EmPursesController.cs" />
     <Compile Include="Controllers\EmShirtsController.cs" />
+    <Compile Include="Controllers\FileBrowserController.cs" />
     <Compile Include="Controllers\GauchosController.cs" />
     <Compile Include="Controllers\GlitterShirtsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -109,14 +111,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Images\Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Models\entDbMain.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>entDbMain.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileExtensions.cs" />
     <Compile Include="Models\FTP.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\uti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -501,6 +509,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Images\down.gif" />
+    <Content Include="Scripts\ImagePath.js" />
     <Content Include="Images\leftedge.gif" />
     <Content Include="Images\rightedge.gif" />
     <Content Include="KidsCapsImages\ImageMetaData.xml">
@@ -1234,8 +1243,11 @@
     <Content Include="ckeditor\skins\moono\images\hidpi\.svn\text-base\lock.png.svn-base" />
     <Content Include="ckeditor\skins\moono\images\hidpi\.svn\text-base\refresh.png.svn-base" />
     <Content Include="ckeditor\skins\moono\readme.md" />
+    <Content Include="Images\Upload.ashx" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <Content Include="Views\Shared\_EditImages.cshtml" />
+    <Content Include="Views\Shared\_Page.cshtml" />
+    <Content Include="Views\FileBrowser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ckeditor\.svn\prop-base\" />
