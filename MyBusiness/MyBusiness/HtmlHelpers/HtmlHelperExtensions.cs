@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using MyBusiness.Models;
 
 namespace MyBusiness.HtmlHelpers
 {
@@ -21,6 +22,14 @@ namespace MyBusiness.HtmlHelpers
             }
 
             return classValue;
+        }
+
+        public static string IsTabActive(this HtmlHelper helper, string tabname)
+        {
+            string toReturn = "";
+            bool active = uti.GetPageActive(tabname);
+            toReturn = active ? "display: block" : "display: none";
+            return toReturn;
         }
 
         //public static string Role(this HtmlHelper helper)

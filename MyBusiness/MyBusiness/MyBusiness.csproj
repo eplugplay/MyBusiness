@@ -125,6 +125,7 @@
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\Tabs.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\uti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

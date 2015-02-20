@@ -147,37 +147,41 @@
                         <ul class="dropdown">
                         <li class="@Html.ActivePage("About", "Index")">@Html.ActionLink("About Us", "Index", "About")</li>
                         <li class="@Html.ActivePage("Map", "Index")">@Html.ActionLink("Map", "Index", "Map")</li>
-                        <li><a href="#">Kids</a>
-                            <ul class="sub_menu">
-                            <li class="@Html.ActivePage("KidsCaps", "Index")">@Html.ActionLink("Caps", "Index", "KidsCaps")</li>
-                            <li class="@Html.ActivePage("KidsShirts", "Index")">@Html.ActionLink("Shirts", "Index", "KidsShirts")</li>
-                            <li class="@Html.ActivePage("KidsPants", "Index")">@Html.ActionLink("Pants", "Index", "KidsPants")</li>
-                        </ul>
-                        </li>
-                        <li><a href="javascript:;">Glitter</a>
-                            <ul class="sub_menu">
-                            <li class="@Html.ActivePage("GlitterShirts", "Index")">@Html.ActionLink("Shirts", "Index", "GlitterShirts")</li>
-                            </ul>
-                        </li>
-                        <!--<li><a href="#">Embroidery</a>
-                            <ul class="sub_menu">
-                            <li class="@Html.ActivePage("EmCaps", "Index")">@Html.ActionLink("Caps", "Index", "EmCaps")</li>
-                            <li class="@Html.ActivePage("EmShirts", "Index")">@Html.ActionLink("Shirts", "Index", "EmShirts")</li>
-                            <li class="@Html.ActivePage("EmPurses", "Index")">@Html.ActionLink("Purses", "Index", "EmPurses")</li>
-                            </ul>
-                        </li>-->
-                        <li class="@Html.ActivePage("Shoes", "Index")">@Html.ActionLink("Shoes", "Index", "Shoes")</li>
-                        <li class="@Html.ActivePage("Caps", "Index")">@Html.ActionLink("Caps", "Index", "Caps")</li>
-                            <li><a href="javascript:;">Apparel</a>
-                            <ul class="sub_menu">
-                            <li class="@Html.ActivePage("Shirts", "Index")">@Html.ActionLink("Shirts", "Index", "Shirts")</li>
-                            <li class="@Html.ActivePage("Pants", "Index")">@Html.ActionLink("Pants", "Index", "Pants")</li>
-                            <li class="@Html.ActivePage("Dress", "Index")">@Html.ActionLink("Dresses", "Index", "Dress")</li>
-                            <li class="@Html.ActivePage("Gauchos", "Index")">@Html.ActionLink("Gauchos", "Index", "Gauchos")</li>
-                            <li class="@Html.ActivePage("RhineStones", "Index")">@Html.ActionLink("Rhinestones", "Index", "RhineStones")</li>
-                            </ul>
+                            <li style="@Html.IsTabActive("Kids")">
+                                <a href="javascript:;">Kids</a>
+                                <ul class="sub_menu">
+                                    <li style="@Html.IsTabActive("KidsCaps")" class="@Html.ActivePage("KidsCaps", "Index")">@Html.ActionLink("Caps", "Index", "KidsCaps")</li>
+                                    <li style="@Html.IsTabActive("KidsShirts")" class="@Html.ActivePage("KidsShirts", "Index")">@Html.ActionLink("Shirts", "Index", "KidsShirts")</li>
+                                    <li style="@Html.IsTabActive("KidsPants")" class="@Html.ActivePage("KidsPants", "Index")">@Html.ActionLink("Pants", "Index", "KidsPants")</li>
+                                </ul>
                             </li>
-                            <li class="@Html.ActivePage("Home", "Index")">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li style="@Html.IsTabActive("Glitter")">
+                                <a href="javascript:;">Glitter</a>
+                                <ul class="sub_menu">
+                                    <li style="@Html.IsTabActive("GlitterShirts")" class="@Html.ActivePage("GlitterShirts", "Index")">@Html.ActionLink("Shirts", "Index", "GlitterShirts")</li>
+                                </ul>
+                            </li>
+                            <li style="@Html.IsTabActive("Embroidery")">
+                                <a href="#">Embroidery</a>
+                                <ul class="sub_menu">
+                                    <li style="@Html.IsTabActive("EmCaps")" class="@Html.ActivePage("EmCaps", "Index")">@Html.ActionLink("Caps", "Index", "EmCaps")</li>
+                                    <li style="@Html.IsTabActive("EmShirts")" class="@Html.ActivePage("EmShirts", "Index")">@Html.ActionLink("Shirts", "Index", "EmShirts")</li>
+                                    <li style="@Html.IsTabActive("EmPurses")" class="@Html.ActivePage("EmPurses", "Index")">@Html.ActionLink("Purses", "Index", "EmPurses")</li>
+                                </ul>
+                            </li>
+                            <li style="@Html.IsTabActive("Shoes")" class="@Html.ActivePage("Shoes", "Index")">@Html.ActionLink("Shoes", "Index", "Shoes")</li>
+                            <li style="@Html.IsTabActive("Caps")" class="@Html.ActivePage("Caps", "Index")">@Html.ActionLink("Caps", "Index", "Caps")</li>
+                            <li style="@Html.IsTabActive("Apparel")">
+                                <a href="javascript:;">Apparel</a>
+                                <ul class="sub_menu">
+                                    <li style="@Html.IsTabActive("Shirts")" class="@Html.ActivePage("Shirts", "Index")">@Html.ActionLink("Shirts", "Index", "Shirts")</li>
+                                    <li style="@Html.IsTabActive("Pants")" class="@Html.ActivePage("Pants", "Index")">@Html.ActionLink("Pants", "Index", "Pants")</li>
+                                    <li style="@Html.IsTabActive("Dress")" class="@Html.ActivePage("Dress", "Index")">@Html.ActionLink("Dresses", "Index", "Dress")</li>
+                                    <li style="@Html.IsTabActive("Gauchos")" class="@Html.ActivePage("Gauchos", "Index")">@Html.ActionLink("Gauchos", "Index", "Gauchos")</li>
+                                    <li style="@Html.IsTabActive("RhineStones")" class="@Html.ActivePage("RhineStones", "Index")">@Html.ActionLink("Rhinestones", "Index", "RhineStones")</li>
+                                </ul>
+                            </li>
+                            <li style="@Html.IsTabActive("Home")" class="@Html.ActivePage("Home", "Index")">@Html.ActionLink("Home", "Index", "Home")</li>
                              @if (Request.IsAuthenticated) {
                             <li class="@Html.ActivePage("Admin", "Index")">@Html.ActionLink("Admin", "Index", "Admin")</li>
                                 }

@@ -49,7 +49,7 @@ namespace MyBusiness.Controllers
         public string LoadCategories()
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+            using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
             {
                 cnn.Open();
                 using (var cmd = cnn.CreateCommand())
@@ -81,7 +81,7 @@ namespace MyBusiness.Controllers
             try
             {
                 string[] split = path.Split('/');
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -136,7 +136,7 @@ namespace MyBusiness.Controllers
                     }
                 }
                 
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -185,7 +185,7 @@ namespace MyBusiness.Controllers
         {
             try
             {
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -215,7 +215,7 @@ namespace MyBusiness.Controllers
             int Hidden = hidden ? 1 : 0;
             try
             {
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -259,7 +259,7 @@ namespace MyBusiness.Controllers
             string[] split = path.Split('/');
             try
             {
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -300,7 +300,7 @@ namespace MyBusiness.Controllers
         {
             try
             {
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -329,7 +329,7 @@ namespace MyBusiness.Controllers
             List<Page> lstPages = new List<Page>();
             try
             {
-                using (MySqlConnection cnn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MyBusinessCnn"].ToString()))
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
                 {
                     cnn.Open();
                     using (var cmd = cnn.CreateCommand())
@@ -355,6 +355,64 @@ namespace MyBusiness.Controllers
               
             }
             return serializer.Serialize(lstPages);
+        }
+        #endregion
+
+        #region Tabs
+        [HttpPost]
+        [ValidateInput(false)]
+        public string LoadTabs()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
+            {
+                cnn.Open();
+                using (var cmd = cnn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT * FROM mybusiness_tabs ORDER BY id asc";
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Tabs> listCategories = new List<Tabs>();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Tabs objst = new Tabs();
+                    objst.id = dt.Rows[i]["id"].ToString();
+                    listCategories.Insert(i, objst);
+                }
+            }
+            return serializer.Serialize(listCategories);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public JsonResult UpdateTabs(string id, int active)
+        {
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"UPDATE mybusiness_tabs SET active=@active WHERE id=@id";
+                        cmd.Parameters.AddWithValue("id", id);
+                        cmd.Parameters.AddWithValue("active", active);
+                        cmd.ExecuteNonQuery();
+                    }
+                };
+
+            }
+            catch
+            {
+                return Json("Failed");
+            }
+            return Json("Successful");
         }
         #endregion
     }

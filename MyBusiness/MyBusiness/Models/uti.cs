@@ -75,5 +75,22 @@ namespace MyBusiness.Models
                 }
             }
         }
+
+        public static bool GetPageActive(string tabname)
+        {
+            bool toReturn = false;
+            using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
+            {
+                cnn.Open();
+                using (var cmd = cnn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT active FROM mybusiness_tabs WHERE id=@id";
+                    cmd.Parameters.AddWithValue("id", tabname);
+                    int num = Convert.ToInt32(cmd.ExecuteScalar());
+                    switch (num) { case 1: toReturn = true; break; }
+                }
+            }
+            return toReturn;
+        }
     }
 }
