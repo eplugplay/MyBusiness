@@ -40,7 +40,7 @@ namespace MyBusiness.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Email Address or Password is Incorrect.");
+                    ModelState.AddModelError("", "User Name or Password is Incorrect.");
                 }
             }
             return View("Index", user);

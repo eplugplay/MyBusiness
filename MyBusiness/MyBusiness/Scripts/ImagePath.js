@@ -21,3 +21,9 @@ function GetImgBrowsePath() {
     }
     return urlpath;
 }
+
+function GetImgName(URL) {
+    var fileName = URL.split('/');
+    fileName = fileName[fileName.length - 1];
+    return fileName
+}

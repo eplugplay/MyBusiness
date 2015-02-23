@@ -61,6 +61,18 @@
         .btnPageSave{
             float:right;
         }
+
+        .btnTabsSave{
+            float:right;
+        }
+
+        #tabsActive{
+            width:300px;
+        }
+
+        #chkActive{
+            margin-left:30px;
+        }
     </style>
 
  <script type="text/javascript">
@@ -94,6 +106,7 @@
          GetCategories();
          SelectChangedCategories();
          GetTabs();
+         SelectChangedTabs();
          $("#tab1").on("click", function () {
              UpdateMen();
          });
@@ -182,46 +195,27 @@
 
      function SelectChangedTabs() {
          $("#ddlTabs").change(function () {
-             var id = $("#ddlTabs").val();
+            var id = $("#ddlTabs").val();
              if (id != -1) {
-                 $("#popupwindow").dialog({
-                     autoOpen: false,
-                     modal: true,
-                     show: "fade",
-                     height: "150",
-                     width: "300px",
-                     title: "Save?",
-                     buttons: {
-                         "Save": function () {
-                             $.ajax({
-                                 type: "POST",
-                                 cache: false,
-                                 async: false,
-                                 url: "/Admin/UpdateTabs",
-                                 dataType: "json",
-                                 data: { path: path },
-                                 async: false,
-                                 success: function (data) {
-                                     if (data == "Successful") {
-                                         UpdateWomen();
-                                         UpdateMen();
-                                         LoadSecondaryMsg('Saved successfully.');
-                                     }
-                                     else {
-                                         LoadSecondaryMsg('Did not save successfully.');
-                                     }
-                                     $("#popupwindow").dialog("close");
-                                     return true;
-                                 }
-                             });
-                         },
-                         "Cancel": function () {
-                             $(this).dialog("close");
+                 $.ajax({
+                     type: "POST",
+                     cache: false,
+                     url: "/Admin/LoadTabs",
+                     dataType: "json",
+                     async: false,
+                     data: { id: id },
+                     success: function (data) {
+                         if (data == 1)
+                         {
+                             $("#chkActive").prop('checked', true)
                          }
+                         else
+                         {
+                             $("#chkActive").prop('checked', false)
+                         }
+                         return true;
                      }
                  });
-                 $("#popupwindow").html("Save?");
-                 $("#popupwindow").dialog("open");
              }
          });
      }
@@ -281,7 +275,7 @@
              cache: false,
              //this line needed to pass array
              traditional: true,
-             url: "/Admin/LoadTabs",
+             url: "/Admin/GetTabs",
              dataType: "json",
              async: false,
              success: function (data) {
@@ -296,6 +290,42 @@
                  return true;
              }
          });
+     }
+
+     function UpdateTabs() {
+         var chkActive = null;
+         if ($("#chkActive").is(":checked")) {
+             chkActive = 1;
+         } else {
+             chkActive = 0;
+         }
+         var id = $("#ddlTabs").val();
+         if (id != -1) {
+             $.ajax({
+                 type: "POST",
+                 cache: false,
+                 async: false,
+                 url: "/Admin/UpdateTabs",
+                 dataType: "json",
+                 data: { id: id, active: chkActive },
+                 async: false,
+                 success: function (data) {
+                     if (data == "Successful") {
+                         LoadSecondaryMsg('Updated successfully.');
+                     }
+                     else {
+                         LoadSecondaryMsg('Did not update successfully.');
+                     }
+                     $("#popupwindow").dialog("close");
+                     return true;
+                 }
+             });
+         }
+         else {
+             LoadSecondaryMsg('Please select a tab.');
+             return false;
+         }
+         return true;
      }
 
      function UpdateWomen() {
@@ -696,7 +726,12 @@
 
         <div id="mainTabs-3">
             <div id="optionsTabs">
-                <select id="ddlTabs"></select>
+                <div id="tabsActive">
+                    <select id="ddlTabs"></select>
+                    <input id="chkActive" type="checkbox" />
+                    <label>Active</label>
+                    <a href="javascript:;" class="btnTabsSave" onclick="UpdateTabs()">Update</a>
+                </div>
             </div>
         </div>
      </div>

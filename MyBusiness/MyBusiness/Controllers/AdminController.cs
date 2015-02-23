@@ -361,7 +361,7 @@ namespace MyBusiness.Controllers
         #region Tabs
         [HttpPost]
         [ValidateInput(false)]
-        public string LoadTabs()
+        public string GetTabs()
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
@@ -413,6 +413,32 @@ namespace MyBusiness.Controllers
                 return Json("Failed");
             }
             return Json("Successful");
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public JsonResult LoadTabs(string id)
+        {
+            int toReturn = 0;
+            try
+            {
+                using (MySqlConnection cnn = new MySqlConnection(ConnectionStrings.MySqlConnectionString()))
+                {
+                    cnn.Open();
+                    using (var cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText = @"SELECT active FROM mybusiness_tabs WHERE id=@id";
+                        cmd.Parameters.AddWithValue("id", id);
+                        toReturn = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                };
+
+            }
+            catch
+            {
+                return Json(toReturn);
+            }
+            return Json(toReturn);
         }
         #endregion
     }

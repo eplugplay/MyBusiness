@@ -509,10 +509,7 @@
     <Content Include="HomeScrollImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Images\down.gif" />
     <Content Include="Scripts\ImagePath.js" />
-    <Content Include="Images\leftedge.gif" />
-    <Content Include="Images\rightedge.gif" />
     <Content Include="KidsCapsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -559,11 +556,6 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\Facebook.png" />
-    <Content Include="Images\github.png" />
-    <Content Include="Images\GitHubFooter.png" />
-    <Content Include="Images\LinkedIn.png" />
-    <Content Include="Images\turquoise-pattern.gif" />
     <Content Include="ApparelsImages\ImageMetaData.xml">
       <SubType>Designer</SubType>
     </Content>

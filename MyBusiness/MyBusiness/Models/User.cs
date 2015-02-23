@@ -11,10 +11,10 @@ namespace MyBusiness.Models
 {
     public class User
     {
-        [Required(ErrorMessage = "Email is required")]
+        [Required(ErrorMessage = "Username is required")]
         [StringLength(150)]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email Address:")]
+        [Display(Name = "Username:")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password is required")]

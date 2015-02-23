@@ -18,6 +18,5 @@ C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCrypto.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
-C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.csprojResolveAssemblyReference.cache
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb
