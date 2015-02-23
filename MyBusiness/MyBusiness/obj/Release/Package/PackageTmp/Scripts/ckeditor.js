@@ -1,6 +1,6 @@
 ﻿
 
-function SavePage(tabName)
+function UpdatePage(tabName)
 {   var ckeditor = null;
     if (tabName == "Home")
     {
@@ -14,7 +14,7 @@ function SavePage(tabName)
         autoOpen: false,
         modal: true,
         show: "fade",
-        height: "150",
+        height: "200",
         width: "300px",
         title: "Update Page?",
         buttons: {
