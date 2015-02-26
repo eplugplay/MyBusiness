@@ -1,5 +1,6 @@
 #Ignore WebDeploy publish profiles
 *.Publish.xml
+*.pubxml
 
 #Ignore web config 
 
