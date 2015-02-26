@@ -19,4 +19,4 @@ C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\SimpleCryp
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\EntityFramework.xml
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.dll
 C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.pdb
-C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\obj\Debug\MyBusiness.csprojResolveAssemblyReference.cache
+C:\Users\stevey\Documents\GitHub\MyBusiness\MyBusiness\MyBusiness\bin\MyBusiness.dll.config
