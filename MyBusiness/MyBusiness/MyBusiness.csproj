@@ -93,6 +93,7 @@
     <Compile Include="Controllers\EmCapsController.cs" />
     <Compile Include="Controllers\EmPursesController.cs" />
     <Compile Include="Controllers\EmShirtsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FileBrowserController.cs" />
     <Compile Include="Controllers\GauchosController.cs" />
     <Compile Include="Controllers\GlitterShirtsController.cs" />
@@ -1241,6 +1242,7 @@
     <Content Include="Views\Shared\_EditImages.cshtml" />
     <Content Include="Views\Shared\_Page.cshtml" />
     <Content Include="Views\FileBrowser\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ckeditor\.svn\prop-base\" />

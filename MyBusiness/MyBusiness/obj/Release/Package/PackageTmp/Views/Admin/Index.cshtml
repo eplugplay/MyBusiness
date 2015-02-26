@@ -356,6 +356,29 @@
          }
      }
 
+     var confirmed = false;
+     $('#btnDelete').click(function (e) {
+         if (!confirmed) {
+             var that = $(this);
+             $("#popupwindow").dialog({
+                 buttons: {
+                     "Delete": function () {
+                         confirmed = true;
+                         that.trigger('click');
+                         $(this).dialog("close");
+                     },
+                     Cancel: function () {
+                         $(this).dialog("close");
+                     }
+                 }
+             });
+
+             e.stopPropagation();
+         } else {
+             confirmed = false;
+         }
+     });
+
      function DeleteImage(path) {
          $("#popupwindow").dialog({
              autoOpen: false,
@@ -441,17 +464,17 @@
              return false;
          }
 
-         if (ValidateImageExtension(extension) == false)
-         {
-             LoadSecondaryMsg('Please upload image files only.');
-             return false;
-         }
-
          if (upload == "")
          {
              LoadSecondaryMsg("Please select an image first.");
              return false;
          }
+
+         if (ValidateImageExtension(extension) == false) {
+             LoadSecondaryMsg('Please upload image files only.');
+             return false;
+         }
+
          if (id == -1) {
              LoadSecondaryMsg("Please select category.");
              return false;
