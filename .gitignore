@@ -3,5 +3,3 @@
 *.pubxml
 
 #Ignore web config 
-
-#Web.config
